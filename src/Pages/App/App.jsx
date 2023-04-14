@@ -3,29 +3,25 @@ import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import AuthPage from '../AuthPage/AuthPage';
+import Dashboard from '../Dashboard/Dashboard';
+import { getUser } from '../../utilities/users-service'
 
 
-const initialUserState = ''
+export default function App() {
+    const [user, setUser] = useState(getUser())
 
-function App() {
-    const [user, setUser] = useState(initialUserState)
 
     return (
         <div className="App">
-            <h1>Hello!</h1>
+            <h1>hey0?</h1>
             {user ?
                 <Routes >
-                    <Route></Route>
-                    <Route></Route>
+                    <Route path='/dash' element={<Dashboard user={user} setUser={setUser}/>}></Route>
                 </Routes>
                 :
-                <AuthPage />
-
+                <AuthPage setUser={setUser}/>
             }
-
-
         </div>
     )
 }
 
-export default App

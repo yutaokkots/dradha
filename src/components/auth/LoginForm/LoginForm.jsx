@@ -7,7 +7,7 @@ const initialState = {
     password: ''
 }
 
-export default function LoginForm() {
+export default function LoginForm({ setUser }) {
     const [credentials, setCredentials] = useState(initialState);
     const [error, setError] = useState('');
     

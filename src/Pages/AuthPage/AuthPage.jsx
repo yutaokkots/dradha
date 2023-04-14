@@ -4,9 +4,9 @@ import ToggleButton from '../../components/ToggleButton/ToggleButton'
 import { useState } from 'react'
 import SignUpForm from '../../components/auth/SignUpForm/SignUpForm'
 
-export default function AuthPage() {
+export default function AuthPage({setUser}) {
     const [toggle, setToggle] = useState(1)
-    const [user, setUser] = useState('')
+
   
     function handleToggle(){
       setToggle(-toggle)
@@ -14,7 +14,12 @@ export default function AuthPage() {
   
     return (
         <>
-            { toggle > 0 ? <SignUpForm setUser={setUser}/> : <LoginForm setUser={setUser} /> }
+            { toggle > 0 
+            ? 
+            <SignUpForm setUser={setUser}/> 
+            : 
+            <LoginForm setUser={setUser} /> }
+            
             <ToggleButton toggler={handleToggle} toggleState={toggle}/>
         </>
     )
