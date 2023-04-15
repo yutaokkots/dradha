@@ -17,6 +17,7 @@ function App() {
   return (
     
     <main className="App">
+      <h1>finished coding backend config and models for user</h1>
       <h1>wrote out controllers and models</h1>
       <h1>imported server.js</h1>
         <h1>Successfully imported getuser()</h1>
