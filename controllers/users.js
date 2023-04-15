@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
-const User = require('../../models/user')
+const User = require('../models/user')
 
 module.exports = {
     create,
@@ -23,7 +23,7 @@ async function login(req, res) {
         if (!user) throw new Error()
         const match = await bcrypt.compare(req.body.password, user.password)
         if (!match) throw new Error()
-        res.json(creatteJWT(user))    
+        res.json(createJWT(user))    
     } catch(err){
         res.statuus(400).json('Credentials do not match')
     }
