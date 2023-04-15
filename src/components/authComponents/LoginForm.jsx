@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-//import { signUp } from '../../../utilities/users-service'
+import { login } from '../../utilities/users-service'
 
 const initialState = {
     email: '',
@@ -18,13 +18,13 @@ export default function LoginForm({setUser}) {
       }
     
     async function handleSubmit(evt) {
-        // evt.preventDefault();
-        // try {
-        //   const user = await usersService.login(credentials);
-        //   setUser(user);
-        // } catch {
-        //   setError('Log In Failed - Try Again');
-        // }
+        evt.preventDefault();
+        try {
+          const user = await login(credentials);
+          setUser(user);
+        } catch {
+          setError('Log In Failed - Try Again');
+        }
     }
 
     return (

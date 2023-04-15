@@ -13,11 +13,10 @@ function App() {
   function updateUser(userState){
     setUser(userState)
   }
-
   return (
     
     <main className="App">
-          <h1>Testing for hot refresh</h1>
+          <h1>YES Testing</h1>
          {user?
                 <>
                 

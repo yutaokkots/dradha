@@ -1,5 +1,5 @@
 import React from 'react'
-import LogoutButton from '../../../components/authComponents/LogoutButton'
+import LogoutButton from '../../authComponents/LogoutButton'
 
 export default function SideBar({user, setUser}) {
   return (

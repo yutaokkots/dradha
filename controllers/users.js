@@ -2,9 +2,13 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/user')
 
-module.exports = {
-    create,
-    login
+
+function createJWT(user) {
+    return jwt.sign(
+        {user},
+        process.env.SECRET,
+        { expiresIn: '24h' }
+    )
 }
 
 async function create(req, res){
@@ -25,6 +29,12 @@ async function login(req, res) {
         if (!match) throw new Error()
         res.json(createJWT(user))    
     } catch(err){
-        res.statuus(400).json('Credentials do not match')
+        res.status(400).json('Credentials do not match')
     }
+}
+
+module.exports = {
+    create,
+    login,
+    createJWT
 }
