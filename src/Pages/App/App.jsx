@@ -3,9 +3,7 @@ import { Routes, Route} from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard'
 import AuthPage from '../AuthPage/AuthPage'
 import { getUser } from '../../utilities/users-service'
-
 import './App.css'
-
 
 function App() {
   const [user, setUser] = useState(getUser())
@@ -14,21 +12,19 @@ function App() {
     setUser(userState)
   }
   return (
-    
-    <main className="App">
-          <h1>YES Testing</h1>
-         {user?
-                <>
-                
-                <Routes>
-                    <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
-                    
-                </Routes>
-                </> 
-                :
-                <AuthPage setUser={updateUser}/>
-            }
-  </main>
+      <main className="App">
+          <h1>Welcome</h1>
+          {user?
+              <>
+              <Routes>
+                  <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
+                  
+              </Routes>
+              </> 
+              :
+              <AuthPage setUser={updateUser}/>
+          }
+      </main>
 
 
   )
