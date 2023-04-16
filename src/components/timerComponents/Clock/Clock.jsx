@@ -14,7 +14,6 @@ export default function Clock() {
     return (
         <>
             <div className='clock-div'>
-                <h1>Current Time</h1>
                 <div className='clock-display'>
                     <h2><span>{twoDigits(hours)}</span>:<span>{twoDigits(minutes)}</span><span>{ampm}</span></h2>
                 </div>

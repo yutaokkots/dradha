@@ -12,14 +12,15 @@ export default function TimerComp({inputTime}) {
 
     const [second, setSecond] = useState(0)
     const [totalSecond, setTotalSecond] = useState(0)
+    const [timerToggle, setTimerToggle] = useState(1)
 
+    // useEffect() -> detects changes in seconds value to re-render progress bar
     useEffect(()=>{
         setSecond(convertSeconds(seconds,minutes,hours,days))
         setTotalSecond(convertSeconds(0, inputTime))
-        console.log(second)
-        console.log(totalSecond)
     }, [seconds, minutes, hours, days])
 
+    // twoDigits() -> changes the single digit time values to double digits
     function twoDigits(singleDigit){
         if (singleDigit.toString().length === 1) return `0${singleDigit}`
         else return singleDigit
@@ -27,21 +28,23 @@ export default function TimerComp({inputTime}) {
 
     // sets the user input, in min, to the time that the timer runs
     function setTimerComp(inputTime){
-        console.log(inputTime*60)
         let seconds = inputTime * 60
         const time = new Date();
         time.setSeconds(time.getSeconds() + seconds);
         restart(time)
     }
 
-    //   progress bar
-    // converting input time  information to seconds so it displays in the progress bar
+    // convertSeconds() -> converting input time  information to seconds so it displays in the progress bar
     function convertSeconds(seconds = 0, minutes = 0, hours = 0, days = 0){
         return seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
     }
 
-    // convertSeconds(seconds, minutes, hours)
-    // convertSeconds(0, inputTime)
+    // changeTimer() -> toggles between the timer being on and off
+    function changeTimer(){
+        setTimerToggle(-timerToggle)
+        timerToggle < 0 ?  start() : pause() 
+        
+    }
     return (
         <>
             <div style={{textAlign: 'center'}}>
@@ -58,11 +61,9 @@ export default function TimerComp({inputTime}) {
                 {(hours) ? <span>{twoDigits(hours)}</span>: <span></span>}<span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
             </div>
             <p>{isRunning ? 'Running' : 'Not running'}</p>
-            <button onClick={start}>Start</button>
-            <button onClick={pause}>Pause</button>
-            <button onClick={resume}>Resume</button>
+            <button onClick={changeTimer}>{timerToggle > 0 ? 'Pause' : 'Start'}</button>
             <button onClick={() => setTimerComp(inputTime)}
-                >Restart</button>
+                >Set</button>
             </div>
         </>
     );

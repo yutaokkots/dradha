@@ -19,6 +19,9 @@ app.use(require('./config/checkToken'));
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
 
+app.use('/api/users', require('./routes/api/users/profile'));
+
+
 // catch-all route
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
