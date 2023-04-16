@@ -4,16 +4,15 @@ import { useState } from 'react'
 import TimerInput from './TimerInput'
 import TimerComp from './TimerComp'
 
-const initialTimerObject = {
-    seconds: null,
-    minutes: null,
-    hours: null,
-    days: null
-}
-
 export default function Meditation() {
-    const [customMedTime, setCustomMedTime] = useState(null)
-
+    // customMedtime will be set in minutes
+    const [customMedTime, setCustomMedTime] = useState(0)
+    
+    function resetTime(input){
+        console.log(input)
+        setCustomMedTime(input)
+        console.log(customMedTime)
+    }
 
     // progress bar
     // converting input time  information to seconds so it displays in the progress bar
@@ -21,15 +20,10 @@ export default function Meditation() {
     //     return seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
     // }
 
-    // function setTime() {
-    //     const time = new Date();
-    //     time.setSeconds(time.getSeconds() + 300);
-    //     restart(time)
-    // }
-
     return (
         <div style={{textAlign: 'center'}}>
-            <TimerInput setTimer={setCustomMedTime}/>
+            <h2>{customMedTime}</h2>
+            <TimerInput setTimer={resetTime}/>
             <TimerComp inputTime={customMedTime}/>
         </div>
       );
