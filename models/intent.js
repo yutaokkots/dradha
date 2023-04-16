@@ -4,7 +4,7 @@ const SALT_ROUNDS = 6
 const bcrypt = require('bcrypt')
 
 
-const intentLikesSchema = new Schema({
+const intentFeedbackSchema = new Schema({
     commentUser: {
       type: Schema.Types.ObjectId,
       ref: 'Profile',
@@ -17,7 +17,7 @@ const intentLikesSchema = new Schema({
         toJSON: { virtuals: true }
 });
 
-const intentFeedbackSchema = new Schema({
+const intentLikesSchema = new Schema({
   commentUser: {
     type: Schema.Types.ObjectId,
     ref: 'Profile',

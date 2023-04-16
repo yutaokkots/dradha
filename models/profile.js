@@ -17,11 +17,11 @@ const profileSchema = new Schema({
         type: String, 
         default: false 
     }, 
-    intents: {
+    intents: [{
         type: Schema.Types.ObjectId,
         ref: 'Intent',
         required: true
-    },
+    }],
     timestamps: true,
     toJSON: { virtuals: true }
   });

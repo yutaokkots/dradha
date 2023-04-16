@@ -4,6 +4,9 @@ import Timers from '../../components/utilityComponents/Timers/Timers'
 //import Sandbox from '../../components/timerComponents/Clock/Sandbox'
 import './Dashboard.css'
 
+const sessionState = {
+    sessionId:
+} 
 
 
 export default function Dashboard({user, setUser}) {
