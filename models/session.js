@@ -16,16 +16,15 @@ const sessionDetailSchema = new Schema({
   });
 
 const sessionSchema = new Schema({
-    sessionUser: {
-        type: Schema.Types.ObjectId,
-        ref: 'Profile',
+    sessionUserId:{
+        type: String,
         required: true
     },
     sessionDate: {
         type: Date,
         required: false
     },
-    programSequence: [sessionDetailSchema],
+    programSequence: sessionDetailSchema,
     timestamps: true,
     toJSON: { virtuals: true }
   });

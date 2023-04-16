@@ -4,10 +4,9 @@ const SALT_ROUNDS = 6
 const bcrypt = require('bcrypt')
 
 const profileSchema = new Schema({
-    profileUser: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+    profileUserId: {
+        type: String,
+        required: true,
     },
     profileName: { 
         type: String, 
@@ -20,10 +19,11 @@ const profileSchema = new Schema({
     intents: [{
         type: Schema.Types.ObjectId,
         ref: 'Intent',
-        required: true
-    }],
+        required: false
+    }]},{
     timestamps: true,
     toJSON: { virtuals: true }
-  });
+});
   
+
   module.exports = mongoose.model('Profile', profileSchema);

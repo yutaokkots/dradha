@@ -11,9 +11,9 @@ const intentFeedbackSchema = new Schema({
       required: false
     },
     comment: { 
-        type: text, 
+        type: String, 
         required: false
-    }, 
+    }},{
         toJSON: { virtuals: true }
 });
 
@@ -49,10 +49,26 @@ const intentSchema = new Schema({
         default: false 
     },
     intentLikes: [intentLikesSchema],
-    intentFeedback: [intentFeedbackSchema],
+    intentFeedback: [intentFeedbackSchema]
+    },{
     timestamps: true,
     toJSON: { virtuals: true }
   });
   
+
+
+//   intentSchema.statics.newProfile = function(userId) {
+//     // 'this' is bound to the model (don't use an arrow function)
+//     // return the promise that resolves to a cart (the user's unpaid order)
+//     return this.findOneAndUpdate(
+//       // query
+//       { user: userId, isPaid: false },
+//       // update - in the case the order (cart) is upserted
+//       { user: userId },
+//       // upsert option creates the doc if it doesn't exist!
+//       { upsert: true, new: true }
+//     );
+//   };
+
 
   module.exports = mongoose.model('Intent', intentSchema);

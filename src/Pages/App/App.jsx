@@ -9,10 +9,10 @@ const initialUser = {name: "devUser", email:"123@dev.com"}
 //getUser()
 
 function App() {
-  const [user, setUser] = useState(initialUser)
+  const [user, setUser] = useState(getUser())
 
   // for dev
-  let devUser = true
+  //let devUser = true
   
 
   function updateUser(userState){
@@ -20,7 +20,7 @@ function App() {
   }
   return (
       <main className="App">
-          {devUser?
+          {user?
               <>
               <Routes>
                   <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
