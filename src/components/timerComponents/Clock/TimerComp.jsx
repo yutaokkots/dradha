@@ -5,7 +5,7 @@ import ProgressBar from 'react-customizable-progressbar'
 
 const expiryTimestamp = 20
 
-export default function TimerComp({inputTime}) {
+export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn}) {
     const { seconds, minutes, hours, days, isRunning, 
         start, pause, resume, restart,
     } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
@@ -16,6 +16,8 @@ export default function TimerComp({inputTime}) {
 
     // useEffect() -> detects changes in seconds value to re-render progress bar
     useEffect(()=>{
+        setGlobalTime(convertSeconds(seconds,minutes,hours,days))
+
         setSecond(convertSeconds(seconds,minutes,hours,days))
         setTotalSecond(convertSeconds(0, inputTime))
     }, [seconds, minutes, hours, days])
@@ -28,9 +30,10 @@ export default function TimerComp({inputTime}) {
 
     // sets the user input, in min, to the time that the timer runs
     function setTimerComp(inputTime){
-        let seconds = inputTime * 60
+        let seconds = timerOn ? timerRef : inputTime * 60
         const time = new Date();
         time.setSeconds(time.getSeconds() + seconds);
+        timerOn = true
         restart(time)
     }
 
@@ -58,7 +61,9 @@ export default function TimerComp({inputTime}) {
                     progress={second}
                     steps={totalSecond}
                     />
+                <div className='digital-timer'>
                 {(hours) ? <span>{twoDigits(hours)}</span>: <span></span>}<span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
+                </div>
             </div>
             <p>{isRunning ? 'Running' : 'Not running'}</p>
             <button onClick={changeTimer}>{timerToggle > 0 ? 'Pause' : 'Start'}</button>

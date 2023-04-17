@@ -24,15 +24,12 @@ function App() {
               <>
               <Routes>
                   <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
-
               </Routes>
               </> 
               :
               <AuthPage setUser={updateUser}/>
           }
       </main>
-
-
   )
 }
 

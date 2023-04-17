@@ -31,15 +31,10 @@ const intentLikesSchema = new Schema({
 });
 
 const intentSchema = new Schema({
-    intentUser: {
-        type: Schema.Types.ObjectId,
-        ref: 'Profile',
-        required: true
-    },
-    intentName: {
+    intentUserId:{
         type: String,
         required: true
-    }, 
+    },
     intentDescription: {
         type: String,
         required: true

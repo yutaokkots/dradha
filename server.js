@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 
+console.log('way before route on server.js')
+
 require('dotenv').config();
 require('./config/database')
 
@@ -17,9 +19,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use(require('./config/checkToken'));
 
 // Put all API routes here (before the catch-all)
+console.log('before route on server.js')
+app.use('/api/intents', require('./routes/api/intents'))
+
+console.log('after route on server.js')
 app.use('/api/users', require('./routes/api/users'));
 
-//app.use('/api/users', require('./routes/api/users/profile'));
+// 'api/intents/new'
 
 // catch-all route
 app.get('/*', function(req, res) {

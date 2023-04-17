@@ -4,7 +4,7 @@ import { useState } from 'react'
 import TimerInput from './TimerInput'
 import TimerComp from './TimerComp'
 
-export default function Meditation() {
+export default function Meditation({setGlobalTime, timerRef, timerOn}) {
     // customMedtime will be set in minutes
     const [customMedTime, setCustomMedTime] = useState(0)
     
@@ -24,7 +24,7 @@ export default function Meditation() {
         <div style={{textAlign: 'center'}}>
             <h2>{customMedTime}</h2>
             <TimerInput setTimer={resetTime}/>
-            <TimerComp inputTime={customMedTime}/>
+            <TimerComp inputTime={customMedTime} setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
         </div>
       );
 }

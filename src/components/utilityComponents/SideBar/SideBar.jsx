@@ -6,8 +6,8 @@ import SideBarItems from '../SideBarItems/SideBarItems'
 import './SideBar.css'
 
 export default function SideBar({user, setUser, setMenu}) {
+    
     function handlePageOpen(evt){
-        console.log(evt.target.value)
         setMenu(evt.target.value)
     }
 
