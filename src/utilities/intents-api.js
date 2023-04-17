@@ -12,3 +12,6 @@ export function createOne(intentData) {
     return sendRequest(`${BASE_URL}/new`,"POST",intentData);
 }
 
+export function deleteOne(intentId) {
+    return sendReturn(`${BASE_URL}/:intentData`, "DELETE")
+}

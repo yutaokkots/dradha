@@ -17,7 +17,6 @@ const timeContext = createContext()
 
 const initSessionTimer = {flow:[20, -5, 20, -5, 20, -30], task:0, timer:0}
 
-
 export default function Dashboard({user, setUser}) {
     // select which panel to show on dashboard
     const [activeMenuItem, setActiveMenuItem] = useState([0, 1, 2]);
@@ -26,10 +25,10 @@ export default function Dashboard({user, setUser}) {
     const [intents, setIntents] = useState([])  
     // state for holding timer that is currently being used
     const [sessionTimer, setSessionTimer] = useState(initSessionTimer)
-
+    const updateRef = useRef()
     // state for timer on
     const [timerOn, setTimerOn] = useState(false)
-    const timerRef = useRef()
+    const [update, setUpdate] = useState([0, 0])
     
     function setGlobalTime(time){
         
@@ -41,11 +40,17 @@ export default function Dashboard({user, setUser}) {
     // useEffect for retrieving intents from db
     useEffect(()=>{
         async function getAllIntents(){
-            const intents = await intentsAPI.getAll() 
+            try{
+            console.log('Example-A') 
+            const intents = await intentsAPI.getAll()
             setIntents(intents)
+            } catch(err){
+                console.error('err', err)
+                console.log('this is the catch in Dashboard in useEffect')
+            }
         }
         getAllIntents()
-    },[])
+    },[activeMenuItem, update])
 
     useEffect(() => {
     }, [dashMenuRef])
@@ -72,7 +77,9 @@ export default function Dashboard({user, setUser}) {
                             <h1>Main Section</h1>
                             <IntentComp 
                                 user={user}
-                                intents={intents}/>
+                                intents={intents}
+                                setUpdate={setUpdate}
+                                />
                             
                         </div>
                         }

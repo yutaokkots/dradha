@@ -3,14 +3,16 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 async function getAll(req, res){
-    console.log(req.user._id)
+    console.log('getAll()')
+    console.log(req.user)
     try {
-        console.log(req.user._id)
         const intents = await Intent.find({intentUserId: req.user._id})
         console.log(intents)
         res.json(intents)
     }catch(err){
+        console.log('in the controller, getAll()', err)
         res.status(400).json('Not found')
+
     }
 }
 //Intent.find({}, function(intents) {

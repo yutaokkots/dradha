@@ -2,24 +2,25 @@ import React from 'react'
 import {useState} from 'react'
 import * as intentsAPI from '../../../utilities/intents-api'
 
-export default function AddIntent({user}) {
+export default function AddIntent({user, setUpdate}) {
     const [newIntent, setNewIntent] = useState('')
     const [newIntentObject, setNewIntentObject] = useState({intentUserId:`${user._id}`,intentDescription: ''})
     
     function handleChange(evt){
         setNewIntent(evt.target.value)
         setNewIntentObject({...newIntentObject, [evt.target.name]: evt.target.value})
+
     }
     async function handleSubmit(evt){
         evt.preventDefault() 
         try {
             const result = await intentsAPI.createOne(newIntentObject);
-            console.log(result)
           } catch (error) {
             setError(`Error: ${error.message}`);
-            console.error(error);
           }
         setNewIntent('')
+        let array = [0,0]
+        setUpdate(array.splice(1, 0, array[1]+1))
     }
 
     return (
