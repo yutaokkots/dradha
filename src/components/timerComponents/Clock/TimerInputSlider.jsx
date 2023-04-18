@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import './TimerInputSlider.css'
 
 
-export default function TimerInputSlider( {setTimer} ) {
+export default function TimerInputSlider( {setTimer, timerValue} ) {
     const [value, setValue] = useState(0);
-    const maxValue = 60;
+    const maxValue = 59;
 
     function onChange(evt){
         setValue(evt.target.value)
@@ -20,14 +20,14 @@ export default function TimerInputSlider( {setTimer} ) {
 
     return (
         <>
-            {value}
+            {timerValue}
             <input
                 type="range"
-                min="0"
+                min="1"
                 max={maxValue}
                 onChange={onChange}
     
-                value={value}
+                value={timerValue}
                 />
         </>
   )

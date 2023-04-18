@@ -23,7 +23,7 @@ export default function Dashboard({user, setUser}) {
     const timerRef = useRef()
 
     // select which panel to show on dashboard
-    const [activeMenuItem, setActiveMenuItem] = useState([0, 1, 2]);
+    const [activeMenuItem, setActiveMenuItem] = useState(0);
     const dashMenuRef = useRef(0);
 
     // state for holding timer that is currently being used

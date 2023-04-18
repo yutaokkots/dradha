@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 //import Sandbox from './Sandbox'
-import TimerInput from './TimerInput'
 import TimerComp from './TimerComp'
 import TimerInputSlider from './TimerInputSlider'
 
@@ -23,10 +22,8 @@ export default function Meditation({setGlobalTime, timerRef, timerOn}) {
 
     return (
         <div style={{textAlign: 'center'}}>
-            <h2>{customMedTime}</h2>
-            <TimerInput setTimer={resetTime}/>
             <TimerComp inputTime={customMedTime} setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
-            <TimerInputSlider setTimer={resetTime} />
+            <TimerInputSlider setTimer={resetTime} timerValue={customMedTime} />
         </div>
       );
 }
