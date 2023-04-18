@@ -3,11 +3,8 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
 async function getAll(req, res){
-    console.log('getAll()')
-    console.log(req.user)
     try {
         const intents = await Intent.find({intentUserId: req.user._id})
-        console.log(intents)
         res.json(intents)
     }catch(err){
         console.log('in the controller, getAll()', err)
@@ -28,11 +25,33 @@ function createJWT(user) {
 
 async function create(req, res){
     try {
-        console.log('the create works')
         const intent = await Intent.create(req.body)
         res.json(intent)
     } catch(err){
         res.status(400).json('Internal Error')
+    }
+}
+
+async function deleteOne(req,res){
+    try{
+        //const userIntents = await Intent.find({ intentUserId: req.user._id })
+        await Intent.deleteOne({_id: req.params.id})
+    } catch(err){
+        res.status(400).json('Error')
+    }
+}
+
+async function completeOne(req,res){
+    try{
+        await Intent.findOneAndUpdate(
+            { _id: req.params.id },
+            {$set:{intentComplete: true},
+            $currentDate: { lastModified: true }
+            })
+        //intent.save()
+        console.log('in controller completeONe')
+    } catch(err){
+        res.status(400).json('Error')
     }
 }
 
@@ -53,5 +72,6 @@ module.exports = {
     create,
     save,
     getAll,
-
+    deleteOne,
+    completeOne
 }

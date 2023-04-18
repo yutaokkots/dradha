@@ -1,6 +1,6 @@
-// import React from 'react'
-// import { useState } from 'react'
-// import { useTimer } from 'react-timer-hook';
+import React from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useTimer } from 'react-timer-hook';
 // import ProgressBar from 'react-customizable-progressbar'
 
 // const initialTimerObject = {
@@ -10,26 +10,26 @@
 //     days: null
 // }
 
-// export default function Meditation() {
+//state will cause you to enter into an infinite loop
+// refs does not cause the component to change
 
 
-//       return (
-//         <div style={{textAlign: 'center'}}>
-//           <h1>react-timer-hook </h1>
-//           <p>Timer Demo</p>
-//             <ProgressBar
-//                 radius={50}
-//                 progress={() => convertSeconds(seconds, minutes, hours)}
-//                 steps={300}
-//                 />
-//           <div style={{fontSize: '100px'}}>
-//             <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
-//           </div>
-//           <p>{isRunning ? 'Running' : 'Not running'}</p>
-//           <button onClick={start}>Start</button>
-//           <button onClick={pause}>Pause</button>
-//           <button onClick={resume}>Resume</button>
-//           <button onClick={setTime}>Restart</button>
-//         </div>
-//       );
-//     }
+export default function Sandbox() {
+    const [name, setName] = useState('')
+    const renderCount = useRef(-1)
+    const inputRef = useRef(1)
+
+    useEffect(() => {
+        renderCount.current = renderCount.current + 1
+        console.log(inputRef.current)
+
+    }, [])
+      return (
+            <>
+                <input ref={inputRef} value={name} onChange={e => setName(e.target.value)} />
+                <div>my name is {name}</div>
+                <div>this is rendered {renderCount.current} times</div>
+                <button onClick={focus}>Focus</button>
+            </>
+      );
+    }

@@ -4,7 +4,7 @@ import sendRequest from './send-requests';
 const BASE_URL = '/api/intents';
 
 export function getAll() {
-    console.log('at intents-api.js')
+
     return sendRequest(`${BASE_URL}/all`);
 }
 
@@ -13,5 +13,9 @@ export function createOne(intentData) {
 }
 
 export function deleteOne(intentId) {
-    return sendReturn(`${BASE_URL}/:intentData`, "DELETE")
+    return sendRequest(`${BASE_URL}/${intentId}`, "DELETE")
+}
+
+export function completeOne(intentId) {
+    return sendRequest(`${BASE_URL}/${intentId}`, "PUT")
 }

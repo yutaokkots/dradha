@@ -1,40 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as intentsAPI from '../../../utilities/intents-api'
 
-export default function Intent({intent}) {
-  
-  
-  function handleClick(evt){
-  }
 
-  function handleSubmit(evt){
-      this[`${evt.target.name}`] = () => {
-        intentsAPI.deleteOne(intent._id)
+export default function Intent({intent, setUpdate}) {
+
+    async function deleteOne(evt){
+        evt.preventDefault()
+        try{
+          await intentsAPI.deleteOne(intent._id)
+        } catch(err){
+            console.error('err', err)
+        }
       }
 
-  }
-  
-  
+  async function completeOne(evt){
+        evt.preventDefault()
+        try{
+          await intentsAPI.completeOne(intent._id)
+        } catch(err){
+            console.error('err', err)
+        }
+    }
+
   return (
     <>  
         <li>
           {intent.intentDescription}
-          <div>{intent._id}</div>
           <form
-            onSubmit={handleSubmit}
+
             >
               <button
                   name='startTimer'
-                  onClick={handleClick}
+
                   >start timer</button>
               <button
                   name='edit'
-                  onClick={handleClick}
+
                   >edit</button>
               <button
                   name='deleteOne'
-                  onClick={handleClick}
+                  value='deleteOne'
+                  onClick={deleteOne}
                   >delete</button>
+              <button
+                  name='completeOne'
+                  value='completeOne'
+                  onClick={completeOne}
+                  >Complete</button>
           </form>
         </li>
     </>

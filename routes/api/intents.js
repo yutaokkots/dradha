@@ -4,12 +4,18 @@ const intentsCtrl = require('../../controllers/intents')
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
-// GET /api/intents/
+// GET /api/intents/all
 router.get('/all', intentsCtrl.getAll)
 
-// POST /api/users/profile/session
+// POST /api/intents/new
 // .create() -> for saving a session to the db
 router.post('/new', intentsCtrl.create)
 // 'api/intents/new'
+
+// DELETE /api/intents/:id
+router.delete('/:id', intentsCtrl.deleteOne)
+
+// PUT  /api/intents/:id
+router.put('/:id', intentsCtrl.completeOne)
 
 module.exports = router;

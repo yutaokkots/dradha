@@ -18,14 +18,13 @@ export default function AddIntent({user, setUpdate}) {
           } catch (error) {
             setError(`Error: ${error.message}`);
           }
-        setNewIntent('')
         let array = [0,0]
         setUpdate(array.splice(1, 0, array[1]+1))
+        setNewIntent('')
     }
 
     return (
         <>
-            <div>Intents</div>
             <form
                 onSubmit={handleSubmit}>
                 <label>I am working on / meditating on: </label>
