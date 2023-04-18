@@ -1,0 +1,27 @@
+.input-slider {
+	-webkit-appearance: none;
+	height: 8px;
+	background: grey;
+	border-radius: 2rem;
+	background-repeat: no-repeat;
+}
+
+.input-slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	height: 25px;
+	width: 25px;
+	cursor: pointer;
+	border-radius: 50%;
+	background: white;
+	box-shadow: 0 2px 2px 0 #555;
+}
+
+.input-slider::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	box-shadow: none;
+	border: none;
+	background: transparent;
+}
+
+
+/* Reference used -> https://relatablecode.com/how-to-make-a-simple-slider-component-in-react */
