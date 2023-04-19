@@ -11,7 +11,7 @@ export const IntentContext = createContext(true)
 
 export default function IntentComp({user}) {
     // importing TimeContext from Dashboard
-    const {sessionTimer, setSessionTimer, onPage, setOnPage} = useContext(TimeContext)
+    const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
 
     const updateRef = useRef()
     // state for holding user's intents from db
@@ -33,7 +33,6 @@ export default function IntentComp({user}) {
             }
         }
         getAllIntents()
-        setOnPage(false)
     },[pageReload])
 
 

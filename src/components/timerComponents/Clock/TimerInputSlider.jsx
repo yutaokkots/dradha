@@ -3,7 +3,7 @@ import './TimerInputSlider.css'
 
 
 export default function TimerInputSlider( {setTimer, timerValue} ) {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(1);
     const maxValue = 59;
 
     function onChange(evt){

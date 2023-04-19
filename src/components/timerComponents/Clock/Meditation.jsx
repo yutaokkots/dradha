@@ -5,8 +5,19 @@ import TimerComp from './TimerComp'
 import TimerInputSlider from './TimerInputSlider'
 import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 
+// where are timer values initialized?
+// timerInputSlider.jsx, setting the slider => const [value, setValue] = useState()
+// progressbar in TimerComp.jsx -> second and total second
+//      const [second, setSecond] = useState(0)
+//      const [totalSecond, setTotalSecond] = useState(0)
+// 1) global states are as follows: sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
+//   if timerStarted is true, then check to see if sessionTimer is > 0
+// 2) then set initial timer value as the sessionTimer, and pass down to TimeContext. 
+// 3) then set inital progress bar to second and total second
+// 4) 
+
 export default function Meditation({setGlobalTime, timerRef, timerOn}) {
-    const {sessionTimer, setSessionTimer, onPage, setOnPage} = useContext(TimeContext)
+    const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
 
     // customMedtime will be set in minutes
     const [customMedTime, setCustomMedTime] = useState(0)

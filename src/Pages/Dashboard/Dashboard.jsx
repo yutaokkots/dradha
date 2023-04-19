@@ -20,8 +20,8 @@ export default function Dashboard({user, setUser}) {
     const dashMenuRef = useRef(0);
 
     // useState for timeContext - keeps track of current seconds of timer
-    const [sessionTimer, setSessionTimer] = useState(0)
-    const [onPage, setOnPage] = useState(false)
+    const [sessionTimer, setSessionTimer] = useState({elapsedSeconds: 0, totalSeconds: 0, elapsedMinutes: 0, totalMinutes: 0})
+    const [timerStarted, setTimerStarted] = useState(false)
 
     // state for timer on
     const [timerOn, setTimerOn] = useState(false)
@@ -43,11 +43,11 @@ export default function Dashboard({user, setUser}) {
 
     return (
         <>  
-            <TimeContext.Provider value={{sessionTimer, setSessionTimer, onPage, setOnPage}} >
+            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
                 <div className='window-main'>
                     <div className='side-bar'>
                     <h1>Side Bar</h1>
-                    <h2>offPage = {`${onPage}`}</h2>
+                    <h2>timerStarted? = {`${timerStarted}`}</h2>
                         <SideBar 
                             user={user} 
                             setUser={setUser}
