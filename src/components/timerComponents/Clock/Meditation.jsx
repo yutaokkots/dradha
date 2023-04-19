@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useContext } from 'react'
+import { useState, useContext} from 'react'
 //import Sandbox from './Sandbox'
 import TimerComp from './TimerComp'
 import TimerInputSlider from './TimerInputSlider'
@@ -15,6 +15,7 @@ export default function Meditation({setGlobalTime, timerRef, timerOn}) {
         setCustomMedTime(input)
         setSessionTimer(input)
     }
+
 
     // progress bar
     // converting input time  information to seconds so it displays in the progress bar

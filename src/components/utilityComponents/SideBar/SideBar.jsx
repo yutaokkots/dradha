@@ -5,7 +5,7 @@ import { Link } from 'react'
 import SideBarItems from '../SideBarItems/SideBarItems'
 import './SideBar.css'
 
-export default function SideBar({user, setUser, setMenu}) {
+export default function SideBar({user, setUser, setMenu, sessionTimer}) {
     
     function handlePageOpen(evt){
         setMenu(evt.target.value)
@@ -14,6 +14,7 @@ export default function SideBar({user, setUser, setMenu}) {
     return (
         <>
             <h1>clock!</h1>
+            {sessionTimer}
             <Clock/>
             <div className='side-bar-menu-item' style={{border:'1px solid rgb(99, 22, 255)'}}>
                 <ul>

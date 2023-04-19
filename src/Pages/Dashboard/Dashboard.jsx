@@ -7,12 +7,13 @@ import './Dashboard.css'
 import Sandbox from '../../components/timerComponents/Clock/Sandbox'
 
 //////// createContext
+// context hook for saving time information 
 export const TimeContext = createContext(0)
 
 const initSessionTimer = {flow:[20, -5, 20, -5, 20, -30], task:0, timer:0}
 
 export default function Dashboard({user, setUser}) {
-
+    // const timerRef = useRef() for keeping track of time
     const timerRef = useRef()
 
     // select which panel to show on dashboard
@@ -33,9 +34,11 @@ export default function Dashboard({user, setUser}) {
     }
 
 
-    // const timerRef = useRef()
-    // useEffect(() => {
-    // }, [dashMenuRef])
+
+    useEffect(() => {
+        console.log('triggered by timerRef, this is the sessionTimer ', sessionTimer)
+        console.log('triggered by timerRef, this is the timerRef ', timerRef)
+    }, [timerRef])
 
 
     return (
@@ -47,6 +50,7 @@ export default function Dashboard({user, setUser}) {
                         <SideBar 
                             user={user} 
                             setUser={setUser}
+                            sessionTimer={sessionTimer}
                             setMenu={setActiveMenuItem}
                             />
                     </div>

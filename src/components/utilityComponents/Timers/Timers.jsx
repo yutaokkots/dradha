@@ -2,8 +2,14 @@ import React from 'react'
 import Meditation from '../../timerComponents/Clock/Meditation';
 import Pomodoro from '../../timerComponents/Clock/Pomodoro'
 import './Timers.css'
+import {useEffect} from 'react'
 
 export default function Timers({setGlobalTime, timerRef, timerOn}) {
+    useEffect(()=>{
+        console.log('mounted Meditation')
+        return console.log('unmounted Meditation')
+
+    },[])
 
     return (
         <>
