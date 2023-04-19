@@ -14,21 +14,14 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
         start, pause, resume, restart,
         } = useTimer({ expiryTimestamp, onExpire: () => setTimerStarted(false)});
 
+    const initialSecond = sessionTimer.elapsedSeconds > 0 && timerStarted ? sessionTimer.elapsedSeconds : 0
+    const initialTotalSecond = sessionTimer.totalSeconds > 0 && timerStarted ? sessionTimer.totalSeconds : 0
     // useState variables declared for setting the time displayed in the progressbar?
-    const [second, setSecond] = useState(0)
-    const [totalSecond, setTotalSecond] = useState(0)
+    const [second, setSecond] = useState(initialSecond)
+    const [totalSecond, setTotalSecond] = useState(initialTotalSecond)
     const [timerToggle, setTimerToggle] = useState(1)
 
-
-    useEffect(()=>{
-        if (timerStarted === true){
-            //const savedTime = sessionTimer
-            
-        }
-        
-    },[])
-
-    // When the timer page is triggered, the global context, TimeContext's 'onPage' state is set to true. 
+    // When the timer page is triggered, the global context, TimerContext's 'onPage' state is set to true. 
     // Use this state to control -> unload the "sessionTimer" information into the current timer, and set the progress bar state. 
     // or if sessionTimer is 0, then proceed as normal with all values set to default of 0
 
@@ -41,7 +34,7 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
         const newSession = {
             elapsedSeconds: elapsedSeconds,
             totalSeconds: totalSeconds, 
-            elapsedMinutes: 0, 
+            elapsedMinutes: Math.ceil(elapsedSeconds/60), 
             totalMinutes: inputTime}
         setGlobalTime(elapsedSeconds)
         setSessionTimer(newSession)
@@ -97,6 +90,8 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
                 </div>
                 <p>{isRunning ? 'Running' : 'Not running'}</p>
                 <button onClick={changeTimer}>{timerToggle > 0 ? 'Pause' : 'Start'}</button>
+                <button onClick={() => setTimerComp(inputTime)}
+                    >Set</button>
                 <button onClick={() => setTimerComp(inputTime)}
                     >Set</button>
             </div>

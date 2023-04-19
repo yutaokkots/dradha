@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import './TimerInputSlider.css'
 
 
-export default function TimerInputSlider( {setTimer, timerValue} ) {
-    const [value, setValue] = useState(1);
+export default function TimerInputSlider( {setTimer, timerValue, initialValue} ) {
+    const [value, setValue] = useState(initialValue);
     const maxValue = 59;
 
     function onChange(evt){

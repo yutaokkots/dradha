@@ -17,26 +17,25 @@ import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 // 4) 
 
 export default function Meditation({setGlobalTime, timerRef, timerOn}) {
+    // global variable, TimeContext, is called here with useContext()
     const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
-
-    // customMedtime will be set in minutes
-    const [customMedTime, setCustomMedTime] = useState(0)
     
+    // initially reads the global variable - if a timer has already started and the amount of time in the global timer > 0,
+    // then set the global state to the component state
+    const initialTimerValue = sessionTimer.elapsedMinutes > 0 && timerStarted ?  sessionTimer.elapsedMinutes : 0
+    
+    // customMedtime is set in minutes
+    const [customMedTime, setCustomMedTime] = useState(initialTimerValue)
+
     function resetTime(input){
         setCustomMedTime(input)
         setSessionTimer(input)
     }
 
-    // progress bar
-    // converting input time  information to seconds so it displays in the progress bar
-    // function convertSeconds(seconds = 0, minutes = 0, hours = 0, days = 0){
-    //     return seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
-    // }
-
     return (
         <div style={{textAlign: 'center'}}>
             <TimerComp inputTime={customMedTime} setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
-            <TimerInputSlider setTimer={resetTime} timerValue={customMedTime} />
+            <TimerInputSlider setTimer={resetTime} timerValue={customMedTime} initialValue={initialTimerValue} />
         </div>
       );
 }

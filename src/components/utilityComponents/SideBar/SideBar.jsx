@@ -14,7 +14,11 @@ export default function SideBar({user, setUser, setMenu, sessionTimer}) {
     return (
         <>
             <h1>clock!</h1>
-            <h5>sessionTimer: {sessionTimer.elapsedSeconds}</h5>
+            <h5>sessionTimer.elapsedSeconds: {sessionTimer.elapsedSeconds}</h5>
+            <h5>sessionTimer.totalSeconds: {sessionTimer.totalSeconds}</h5>
+            <h5>sessionTimer.elapsedMinutes: {sessionTimer.elapsedMinutes}</h5>
+            <h5>sessionTimer.totalMinutes: {sessionTimer.totalMinutes}</h5>
+            
 
             <Clock/>
             <div className='side-bar-menu-item' style={{border:'1px solid rgb(99, 22, 255)'}}>
