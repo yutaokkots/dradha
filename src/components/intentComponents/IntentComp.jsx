@@ -1,16 +1,18 @@
-import React, { useState, useRef, useEffect, createContext } from 'react'
+import React, { useState, useRef, useEffect, createContext, useContext } from 'react'
 import AddIntent from '../../components/intentComponents/AddIntent/AddIntent'
 import IntentsList from '../../components/intentComponents/IntentsList/IntentsList'
 import PastIntentsList from '../../components/intentComponents/IntentsList/PastIntentsList'
 import * as intentsAPI from '../../utilities/intents-api';
-
-
+import { TimeContext } from '../../Pages/Dashboard/Dashboard'
 
 //////// createContext
 export const IntentContext = createContext(true)
 // export const PageReloadContext = createContext()
 
 export default function IntentComp({user}) {
+    // importing TimeContext from Dashboard
+    const {sessionTimer, setSessionTimer, onPage, setOnPage} = useContext(TimeContext)
+
     const updateRef = useRef()
     // state for holding user's intents from db
     const [masterIntents, setMasterIntents] = useState([])  
@@ -30,8 +32,8 @@ export default function IntentComp({user}) {
                 console.error('err', err)
             }
         }
-        console.log(pageReload)
         getAllIntents()
+        setOnPage(false)
     },[pageReload])
 
 

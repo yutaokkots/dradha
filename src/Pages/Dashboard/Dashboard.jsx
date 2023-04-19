@@ -7,7 +7,7 @@ import './Dashboard.css'
 
 //////// createContext
 // context hook for saving time information 
-export const TimeContext = createContext(0)
+export const TimeContext = createContext()
 
 const initSessionTimer = {flow:[20, -5, 20, -5, 20, -30], task:0, timer:0}
 
@@ -21,6 +21,7 @@ export default function Dashboard({user, setUser}) {
 
     // useState for timeContext - keeps track of current seconds of timer
     const [sessionTimer, setSessionTimer] = useState(0)
+    const [onPage, setOnPage] = useState(false)
 
     // state for timer on
     const [timerOn, setTimerOn] = useState(false)
@@ -29,9 +30,10 @@ export default function Dashboard({user, setUser}) {
     
     function setGlobalTime(time){
         timerRef.current=time
+        console.log('dashMenuRef called in Dashboard ', dashMenuRef)
         console.log('in Dashboard.jsx, the value in timerRef.current: ', timerRef.current)
     }
-
+    // function setGlobaltime is located and triggered at TimerComp.jsx -> setGlobalTime(convertSeconds(seconds,minutes,hours,days))
 
     useEffect(() => {
         console.log('triggered by timerRef, this is the sessionTimer ', sessionTimer)
@@ -41,10 +43,11 @@ export default function Dashboard({user, setUser}) {
 
     return (
         <>  
-            <TimeContext.Provider value={{sessionTimer, setSessionTimer}} >
+            <TimeContext.Provider value={{sessionTimer, setSessionTimer, onPage, setOnPage}} >
                 <div className='window-main'>
                     <div className='side-bar'>
                     <h1>Side Bar</h1>
+                    <h2>offPage = {`${onPage}`}</h2>
                         <SideBar 
                             user={user} 
                             setUser={setUser}

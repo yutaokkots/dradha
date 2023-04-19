@@ -7,7 +7,7 @@ const expiryTimestamp = 20
 
 export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn}) {
     // useContext variables declared to set and get the global variables in TimeContext
-    const {sessionTimer, setSessionTimer} = useContext(TimeContext)
+    const {sessionTimer, setSessionTimer, onPage, setOnPage} = useContext(TimeContext)
 
     // declaring useTimer values to be used in this component and child components
     const { seconds, minutes, hours, days, isRunning, 
@@ -19,8 +19,11 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
     const [totalSecond, setTotalSecond] = useState(0)
     const [timerToggle, setTimerToggle] = useState(1)
 
+    // When the timer page is triggered, the global context, TimeContext's 'onPage' state is set to true. 
+    // Use this state to control -> unload the "sessionTimer" information into the current timer, and set the progress bar state. 
+    // or if sessionTimer is 0, then proceed as normal with all values set to default of 0
     useEffect(()=>{
-        
+        setOnPage(true)
     })
 
     useEffect(()=>{

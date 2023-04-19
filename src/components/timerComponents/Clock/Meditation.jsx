@@ -6,7 +6,7 @@ import TimerInputSlider from './TimerInputSlider'
 import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 
 export default function Meditation({setGlobalTime, timerRef, timerOn}) {
-    const {sessionTimer, setSessionTimer} = useContext(TimeContext)
+    const {sessionTimer, setSessionTimer, onPage, setOnPage} = useContext(TimeContext)
 
     // customMedtime will be set in minutes
     const [customMedTime, setCustomMedTime] = useState(0)
@@ -15,7 +15,6 @@ export default function Meditation({setGlobalTime, timerRef, timerOn}) {
         setCustomMedTime(input)
         setSessionTimer(input)
     }
-
 
     // progress bar
     // converting input time  information to seconds so it displays in the progress bar
