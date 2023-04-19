@@ -5,21 +5,16 @@ import Timers from '../../components/utilityComponents/Timers/Timers'
 
 import IntentComp from '../../components/intentComponents/IntentComp'
 import './Dashboard.css'
-import * as intentsAPI from '../../utilities/intents-api';
 import IntentsList from '../../components/intentComponents/IntentsList/IntentsList'
 
 import Sandbox from '../../components/timerComponents/Clock/Sandbox'
 
-// const sessionState = {
-//     sessionId:
-// } 
+
 
 const initSessionTimer = {flow:[20, -5, 20, -5, 20, -30], task:0, timer:0}
 
 export default function Dashboard({user, setUser}) {
-    // state for holding user's intents from db
-    const [masterIntents, setMasterIntents] = useState([])  
-    const [intents, setIntents] = useState([])  
+
     const timerRef = useRef()
 
     // select which panel to show on dashboard
@@ -28,30 +23,23 @@ export default function Dashboard({user, setUser}) {
 
     // state for holding timer that is currently being used
     const [sessionTimer, setSessionTimer] = useState(initSessionTimer)
-    const updateRef = useRef()
+
+
     // state for timer on
     const [timerOn, setTimerOn] = useState(false)
-    const [update, setUpdate] = useState([0, 0])
+    //const [update, setUpdate] = useState([0, 0])
     
     function setGlobalTime(time){
         timerRef.current=time
         console.log(timerRef.current)
     }
 
-    // useEffect for retrieving intents from db
-    useEffect(()=>{
-        async function getAllIntents(){
-            try{
-                const intents = await intentsAPI.getAll()
-                setMasterIntents(intents)
-                setIntents(intents)
-            } catch(err){
-                console.error('err', err)
-            }
-        }
-        getAllIntents()
+    // useContext
+    const [pageReload, setPageReload] = useState(true)
 
-    },[activeMenuItem])
+    // categoriesRef.current = [...new Set(items.map(item => item.category.name))];
+    // setMenuItems(items);
+    // setActiveCat(categoriesRef.current[0]);
 
 
     useEffect(() => {
@@ -79,8 +67,6 @@ export default function Dashboard({user, setUser}) {
                             <h1>Main Section</h1>
                             <IntentComp 
                                 user={user}
-                                intents={intents}
-                                setUpdate={setUpdate}
                                 />
                             
                         </div>

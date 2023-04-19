@@ -1,5 +1,6 @@
 import React from 'react'
 import Intent from '../Intent/Intent'
+import IntentContext from '../IntentComp'
 
 export default function PastIntentsList({intents}) {
   return (

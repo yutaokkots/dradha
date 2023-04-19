@@ -2,7 +2,6 @@ import React, { useState, useEffect }  from 'react'
 import { useTimer } from 'react-timer-hook';
 import ProgressBar from 'react-customizable-progressbar'
 
-
 const expiryTimestamp = 20
 
 export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn}) {
