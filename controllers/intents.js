@@ -7,7 +7,6 @@ async function getAll(req, res){
         const intents = await Intent.find({intentUserId: req.user._id})
         res.json(intents)
     }catch(err){
-        console.log('in the controller, getAll()', err)
         res.status(400).json('Not found')
 
     }

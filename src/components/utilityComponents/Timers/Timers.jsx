@@ -5,11 +5,6 @@ import './Timers.css'
 import {useEffect} from 'react'
 
 export default function Timers({setGlobalTime, timerRef, timerOn}) {
-    useEffect(()=>{
-        console.log('mounted Meditation in: Dashboard>TIMERS>Meditation>TimerComp>ProgressBar')
-        return console.log('unmounted in: Meditation Dashboard>TIMERS>Meditation>TimerComp>ProgressBar')
-    },[])
-
     return (
         <>
             <div style={{border: '2px solid rgb(255, 99, 71)'}}>

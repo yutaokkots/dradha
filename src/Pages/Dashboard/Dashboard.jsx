@@ -31,15 +31,8 @@ export default function Dashboard({user, setUser}) {
     
     function setGlobalTime(time){
         timerRef.current=time
-        console.log('dashMenuRef called in Dashboard ', dashMenuRef)
-        console.log('in Dashboard.jsx, the value in timerRef.current: ', timerRef.current)
     }
     // function setGlobaltime is located and triggered at TimerComp.jsx -> setGlobalTime(convertSeconds(seconds,minutes,hours,days))
-
-    useEffect(() => {
-        console.log('triggered by timerRef, this is the sessionTimer ', sessionTimer)
-        console.log('triggered by timerRef, this is the timerRef ', timerRef)
-    }, [timerRef])
 
 
     return (
@@ -47,7 +40,6 @@ export default function Dashboard({user, setUser}) {
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
                 <div className='window-main'>
                     <div className='side-bar'>
-                    <h1>Side Bar</h1>
                     <h2>timerStarted? = {`${timerStarted}`}</h2>
                         <SideBar 
                             user={user} 

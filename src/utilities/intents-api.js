@@ -1,10 +1,8 @@
-import intentSendRequest from './intents-send-requests';
 import sendRequest from './send-requests';
 
 const BASE_URL = '/api/intents';
 
 export function getAll() {
-
     return sendRequest(`${BASE_URL}/all`);
 }
 

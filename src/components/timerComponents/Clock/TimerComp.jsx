@@ -39,7 +39,6 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, 
         setSessionTimer(newSession)
         setSecond(elapsedSeconds)
         setTotalSecond(totalSeconds)
-        console.log('in TimerComp.jsx, the sessionTimer', sessionTimer)
 
     }, [seconds, minutes, hours, days])
 
