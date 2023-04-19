@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import * as intentsAPI from '../../../utilities/intents-api'
-import { IntentContext} from '../IntentComp'
+import { IntentContext } from '../IntentComp'
 
 export default function Intent({intent, setUpdate}) {
 

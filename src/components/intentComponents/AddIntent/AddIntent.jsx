@@ -49,11 +49,9 @@ export default function AddIntent({user, intents}) {
                 </form>
             </div>
             <div>
-                {intents.
-
-                }
                 <ul>
-                    {intents.map((intent,idx)=> intent.intentComplete && <Intent key={idx} intent={intent}/> )} 
+                    {intents.map((intent,idx)=> 
+                        intent.intentComplete && <Intent key={idx} intent={intent}/> )} 
                 </ul>
             </div>
         </>

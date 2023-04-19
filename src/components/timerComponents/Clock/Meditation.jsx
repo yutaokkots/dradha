@@ -1,17 +1,19 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 //import Sandbox from './Sandbox'
 import TimerComp from './TimerComp'
 import TimerInputSlider from './TimerInputSlider'
+import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 
 export default function Meditation({setGlobalTime, timerRef, timerOn}) {
+    const {sessionTimer, setSessionTimer} = useContext(TimeContext)
+
     // customMedtime will be set in minutes
     const [customMedTime, setCustomMedTime] = useState(0)
     
     function resetTime(input){
-        console.log(input)
         setCustomMedTime(input)
-        console.log(customMedTime)
+        setSessionTimer(input)
     }
 
     // progress bar
