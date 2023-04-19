@@ -6,6 +6,7 @@ import Inspiration from '../../components/Inspiration/Inspiration'
 import './Dashboard.css'
 
 
+
 //////// createContext
 // context hook for saving time information 
 export const TimeContext = createContext()
@@ -38,18 +39,18 @@ export default function Dashboard({user, setUser}) {
     return (
         <>  
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
-                <div className='window-main bg-gray-500 w-full l-full'>
-                    <div className='side-bar'>
-                    <h2>timerStarted? = {`${timerStarted}`}</h2>
-                        <SideBar 
-                            user={user} 
-                            setUser={setUser}
-                            sessionTimer={sessionTimer}
-                            setMenu={setActiveMenuItem}
-                            />
+                <div className='container'>
+                    
+                    <div className="tail">
+                            <SideBar 
+                                user={user} 
+                                setUser={setUser}
+                                sessionTimer={sessionTimer}
+                                setMenu={setActiveMenuItem}
+                                />
                     </div>
 
-                    <div className='main-section'>
+                    <div className='main-section container'>
                         {activeMenuItem === 0 &&
                             <div className="bg-gray-50 w-full l-full">
                                 <IntentComp 
