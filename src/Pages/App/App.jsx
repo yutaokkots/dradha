@@ -3,7 +3,7 @@ import { Routes, Route} from 'react-router-dom'
 import Dashboard from '../Dashboard/Dashboard'
 import AuthPage from '../AuthPage/AuthPage'
 import { getUser } from '../../utilities/users-service'
-import './App.css'
+// import './App.css'
 
 const initialUser = {name: "devUser", email:"123@dev.com"}
 //getUser()
@@ -19,7 +19,7 @@ function App() {
     setUser(userState)
   }
   return (
-      <main className="App">
+      <main className="App bg-" >
           {user?
               <>
               <Routes>

@@ -76,7 +76,7 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, 
 
     return (
         <>
-            <div style={{textAlign: 'center'}}>
+            <div  style={{textAlign: 'center'}}>
                 <h1>Timer</h1>
                 <div style={{fontSize: '100px', display:'flex', justifyContent: 'center'}}>
                     <ProgressBar
@@ -92,10 +92,10 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, 
                     </div>
                 </div>
                 <p>{isRunning ? 'Running' : 'Not running'}</p>
-                <button onClick={pause}>Pause</button>
-                <button onClick={() => setTimerComp(inputTime)}
+                <button className="bg-sky-500 hover:bg-sky-700" onClick={pause}>Pause</button>
+                <button className="bg-sky-500 hover:bg-sky-700" onClick={() => setTimerComp(inputTime)}
                     >Start</button>
-                <button onClick={clearTimer}
+                <button className="bg-sky-500 hover:bg-sky-700" onClick={clearTimer}
                     >Reset</button>
             </div>
         </>

@@ -21,10 +21,12 @@ export default function Inspiration() {
   return (
     <>
         <h1>quote here</h1>
-        <div>{quote}</div>
 
-        <div>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></div>
+
+        
     </>
 
   )
 }
+{/* <div>{quote}</div>
+<div>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></div> */}

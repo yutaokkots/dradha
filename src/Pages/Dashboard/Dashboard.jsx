@@ -38,7 +38,7 @@ export default function Dashboard({user, setUser}) {
     return (
         <>  
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
-                <div className='window-main'>
+                <div className='window-main bg-gray-500 w-full l-full'>
                     <div className='side-bar'>
                     <h2>timerStarted? = {`${timerStarted}`}</h2>
                         <SideBar 
@@ -51,9 +51,7 @@ export default function Dashboard({user, setUser}) {
 
                     <div className='main-section'>
                         {activeMenuItem === 0 &&
-                            <div style={{border: '2px solid rgb(255, 99, 71)'}}>
-                                <p style={{color: 'rgb(255, 99, 71)'}}>Intents.jsx in components/utilitycomponents/Intents</p>
-                                <h1>Main Section</h1>
+                            <div className="bg-gray-50 w-full l-full">
                                 <IntentComp 
                                     user={user}
                                     />
@@ -63,7 +61,6 @@ export default function Dashboard({user, setUser}) {
                         {activeMenuItem === 1 &&
                         <div style={{border: '2px solid rgb(255, 99, 71)'}}>
                             <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in components/utilityComponents/Timers</p>
-                            <h1>Main Section</h1>
                             <Timers setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
                         </div>
                         }

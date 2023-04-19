@@ -29,13 +29,13 @@ export default function AddIntent({user, intents}) {
 
     return (
         <>
-            <div>
+            <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
                 <ul>
                     {intents.map((intent,idx)=>  
                         !intent.intentComplete && <Intent key={idx} intent={intent}/> )}
                 </ul>
             </div>
-            <div>
+            <div className="p-6 max-w-sm mx-auto bg-teal-900 rounded-xl shadow-lg flex items-center space-x-4">
                 <form
                     onSubmit={handleSubmit}>
                     <label>I am working on / meditating on: </label>
@@ -45,7 +45,7 @@ export default function AddIntent({user, intents}) {
                         onChange={handleChange}
                         required
                         ></input>
-                    <button type='submit'>Submit</button>
+                    <button className="bg-sky-500 hover:bg-sky-700" type='submit'>Submit</button>
                 </form>
             </div>
             <div>
@@ -58,51 +58,3 @@ export default function AddIntent({user, intents}) {
     )
 }
 
-
-
-// const intentFeedbackSchema = new Schema({
-//     commentUser: {
-//       type: Schema.Types.ObjectId,
-//       ref: 'Profile',
-//       required: false
-//     },
-//     comment: { 
-//         type: String, 
-//         required: false
-//     }},{
-//         toJSON: { virtuals: true }
-// });
-
-// const intentLikesSchema = new Schema({
-//   commentUser: {
-//     type: Schema.Types.ObjectId,
-//     ref: 'Profile',
-//     required: false
-//   },
-//   likes: { 
-//       type: Number, 
-//       default: 1 },
-//   }, {
-//       toJSON: { virtuals: true }
-// });
-
-// const intentSchema = new Schema({
-//     intentUserId:{
-//         type: String,
-//         required: true
-//     },
-
-//     intentDescription: {
-//         type: String,
-//         required: true
-//     },
-//     intentComplete: { 
-//         type: Boolean, 
-//         default: false 
-//     },
-//     intentLikes: [intentLikesSchema],
-//     intentFeedback: [intentFeedbackSchema]
-//     },{
-//     timestamps: true,
-//     toJSON: { virtuals: true }
-//   });
