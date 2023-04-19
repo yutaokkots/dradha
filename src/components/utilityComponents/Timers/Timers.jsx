@@ -6,9 +6,8 @@ import {useEffect} from 'react'
 
 export default function Timers({setGlobalTime, timerRef, timerOn}) {
     useEffect(()=>{
-        console.log('mounted Meditation')
-        return console.log('unmounted Meditation')
-
+        console.log('mounted Meditation in: Dashboard>TIMERS>Meditation>TimerComp>ProgressBar')
+        return console.log('unmounted in: Meditation Dashboard>TIMERS>Meditation>TimerComp>ProgressBar')
     },[])
 
     return (

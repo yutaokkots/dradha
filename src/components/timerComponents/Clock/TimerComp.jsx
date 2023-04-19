@@ -19,13 +19,22 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
     const [totalSecond, setTotalSecond] = useState(0)
     const [timerToggle, setTimerToggle] = useState(1)
 
+    useEffect(()=>{
+        
+    })
+
+    useEffect(()=>{
+        console.log('mounted in: Dashboard>Timers>Meditation>TIMERCOMP>ProgressBar')
+        return console.log('unmounted in: Dashboard>Timers>Meditation>TIMERCOMP>ProgressBar')
+    },[])
+
     // useEffect() -> detects changes in seconds value to re-render progress bar
     useEffect(()=>{
         setGlobalTime(convertSeconds(seconds,minutes,hours,days))
         setSessionTimer(convertSeconds(seconds,minutes,hours,days))
         setSecond(convertSeconds(seconds,minutes,hours,days))
         setTotalSecond(convertSeconds(0, inputTime))
-        console.log(sessionTimer)
+        console.log('in TimerComp.jsx, the sessionTimer', sessionTimer)
     }, [seconds, minutes, hours, days])
 
     // twoDigits() -> changes the single digit time values to double digits
