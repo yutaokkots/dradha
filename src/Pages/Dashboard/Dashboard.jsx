@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, createContext } from 'react'
 import SideBar from '../../components/utilityComponents/SideBar/SideBar'
 import Timers from '../../components/utilityComponents/Timers/Timers'
 import IntentComp from '../../components/intentComponents/IntentComp'
+import Inspiration from '../../components/Inspiration/Inspiration'
 import './Dashboard.css'
 
 
@@ -78,6 +79,7 @@ export default function Dashboard({user, setUser}) {
                         <div style={{border: '2px solid rgb(255, 99, 71)'}}>
                             <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in Dashboard</p>
                             <h1>Main Section</h1>
+                            <Inspiration />
                         </div>
                         }
                         

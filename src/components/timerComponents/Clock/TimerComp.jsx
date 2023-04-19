@@ -5,7 +5,7 @@ import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 
 const expiryTimestamp = 20
 
-export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn}) {
+export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, setTimer}) {
     // useContext variables declared to set and get the global variables in TimeContext
     const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
 
@@ -19,7 +19,6 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
     // useState variables declared for setting the time displayed in the progressbar?
     const [second, setSecond] = useState(initialSecond)
     const [totalSecond, setTotalSecond] = useState(initialTotalSecond)
-    const [timerToggle, setTimerToggle] = useState(1)
 
     // When the timer page is triggered, the global context, TimerContext's 'onPage' state is set to true. 
     // Use this state to control -> unload the "sessionTimer" information into the current timer, and set the progress bar state. 
@@ -65,10 +64,15 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
         return seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
     }
 
-    // changeTimer() -> toggles between the timer being on and off
-    function changeTimer(){
-        setTimerToggle(-timerToggle)
-        timerToggle < 0 ?  start() : pause() 
+    // clearTimer() -> resets the timer to 0
+    function clearTimer(){
+        setSessionTimer({
+            elapsedSeconds: 0,
+            totalSeconds: 0, 
+            elapsedMinutes: 0, 
+            totalMinutes: 0})
+        setTimer(0)
+        restart(0)
     }
 
     return (
@@ -89,11 +93,11 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn})
                     </div>
                 </div>
                 <p>{isRunning ? 'Running' : 'Not running'}</p>
-                <button onClick={changeTimer}>{timerToggle > 0 ? 'Pause' : 'Start'}</button>
+                <button onClick={pause}>Pause</button>
                 <button onClick={() => setTimerComp(inputTime)}
-                    >Set</button>
-                <button onClick={() => setTimerComp(inputTime)}
-                    >Set</button>
+                    >Start</button>
+                <button onClick={clearTimer}
+                    >Reset</button>
             </div>
         </>
     );

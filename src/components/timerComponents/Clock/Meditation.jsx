@@ -34,7 +34,7 @@ export default function Meditation({setGlobalTime, timerRef, timerOn}) {
 
     return (
         <div style={{textAlign: 'center'}}>
-            <TimerComp inputTime={customMedTime} setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
+            <TimerComp inputTime={customMedTime} setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn} setTimer={resetTime}/>
             <TimerInputSlider setTimer={resetTime} timerValue={customMedTime} initialValue={initialTimerValue} />
         </div>
       );
