@@ -4,11 +4,11 @@ import Pomodoro from '../../timerComponents/Clock/Pomodoro'
 import './Timers.css'
 import {useEffect} from 'react'
 
-export default function Timers({setGlobalTime, timerRef, timerOn}) {
+export default function Timers() {
     return (
         <>
             <div className="bg-ocean w-screen h-screen">
-                <Meditation setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
+                <Meditation  />
             </div>
         </>  
     );

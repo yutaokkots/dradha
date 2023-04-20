@@ -5,15 +5,14 @@ import IntentComp from '../../components/intentComponents/IntentComp'
 import Inspiration from '../../components/Inspiration/Inspiration'
 import './Dashboard.css'
 import { useTimer } from 'react-timer-hook'
+import { useSound } from 'use-sound'
+import chime from '../../assets/sounds/singing-bell-hit-1-105400.mp3'
 
 //////// createContext
 // context hook for saving time information 
 export const TimeContext = createContext()
 
 export default function Dashboard({user, setUser}) {
-    // const timerRef = useRef() for keeping track of time
-    const timerRef = useRef()
-
     // select which panel to show on dashboard
     const [activeMenuItem, setActiveMenuItem] = useState(0);
     const dashMenuRef = useRef(0);
@@ -22,23 +21,18 @@ export default function Dashboard({user, setUser}) {
     const [sessionTimer, setSessionTimer] = useState({elapsedSeconds: 0, totalSeconds: 0, elapsedMinutes: 0, totalMinutes: 0})
     const [timerStarted, setTimerStarted] = useState(false)
     const [inputValue, setInputValue] = useState(1)
-
-    // state for timer on
-    const [timerOn, setTimerOn] = useState(false)
-
-    // state for closing and opening side-bar
-    const [sideBarOpen, setSideBarOpen] = useState(true)
     
-    function setGlobalTime(time){
-        timerRef.current=time
-    }
-    // function setGlobaltime is located and triggered at TimerComp.jsx -> setGlobalTime(convertSeconds(seconds,minutes,hours,days))
-
     const expiryTimestamp = 20
     // declaring useTimer values to be used in this component and child components
     const { seconds, minutes, hours, days, isRunning, 
         start, pause, resume, restart,
-        } = useTimer({ expiryTimestamp, onExpire: () => setTimerStarted(false)});
+        } = useTimer({ expiryTimestamp, onExpire: () => {
+            setTimerStarted(false)}
+        });
+
+    // useSound for chime sound
+    const [play] = useSound(chime)
+
 
     // convertSeconds() -> converting input time  information to seconds so it displays in the progress bar
     function convertSeconds(seconds = 0, minutes = 0, hours = 0, days = 0){
@@ -56,16 +50,30 @@ export default function Dashboard({user, setUser}) {
             totalSeconds: totalSeconds, 
             elapsedMinutes: Math.ceil(elapsedSeconds/60), 
             totalMinutes: inputTime}
-        setGlobalTime(elapsedSeconds)
         setSessionTimer(newSession)
 
     }, [seconds, minutes, hours, days])
 
+    useEffect(()=>{
+        if (activeMenuItem === 1 && !isRunning){
+            if (seconds === 0) play()
+        }
+    }, [isRunning])
+
+    console.log('second (in useTimer)', seconds)
+    console.log('minutes (in useTimer) ', minutes)
+    console.log('sessionTimer.elapsedSeconds) ', sessionTimer.elapsedSeconds)
+    console.log('sessionTimer.totalSeconds) ', sessionTimer.totalSeconds)
+    console.log('sessionTimer.elapsedMinutes) ', sessionTimer.elapsedMinutes)
+    console.log('isRunning ', isRunning)
+    console.log('inputValue (the value user inputs)', inputValue)
+    console.log('timerStarted )', timerStarted)
+
+
     return (
         <>  
-            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, pause, restart, isRunning, inputValue, setInputValue}} >
+            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, start, pause, restart, isRunning, inputValue, setInputValue, activeMenuItem}} >
                     <div >
-
                             <div className="container">
                                 {}
                                     <SideBar 
@@ -91,7 +99,7 @@ export default function Dashboard({user, setUser}) {
                                 }
                             {activeMenuItem === 1 &&
                             <div >
-                                <Timers setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
+                                <Timers />
                             </div>
                             }
                             {activeMenuItem === 2 &&

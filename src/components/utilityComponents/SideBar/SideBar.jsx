@@ -9,7 +9,7 @@ import logo from "../../../assets/logos/dradha_logo.svg"
 
 
 export default function SideBar({user, setUser, setMenu, start, pause, restart}) {
-    const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, isRunning} = useContext(TimeContext)
+    const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, isRunning, activeMenuItem} = useContext(TimeContext)
 
     function handlePageOpen(evt){
         setMenu(evt.target.value)
@@ -54,19 +54,22 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                         <Clock/>
                     </div>
                             
-                    {(!isRunning) ?
+                    {(!timerStarted) ?
                         <div>
-                            <h2>off</h2>
+                            <h2></h2>
                         </div> 
+                        :
+                        (activeMenuItem === 1)
+                        ?
+                        <span>be your best</span>
                         :
                         <div>
                             <span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
                         </div>
                         }
-
-                        <div>
-                            <LogoutButton user={user} setUser={setUser} />
-                        </div>
+                    <div>
+                        <LogoutButton user={user} setUser={setUser} />
+                    </div>
                 </div>
 
                    

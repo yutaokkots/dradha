@@ -19,6 +19,7 @@ Dradha is a Full-Stack MERN App that leverages the React framework, and is built
 #                                   References
 [react-timer-hook](https://github.com/amrlabib/react-timer-hook)
 [react-customizable-progressbar](https://github.com/martyan/react-customizable-progressbar)
+[react-use-sound](https://github.com/joshwcomeau/use-sound)
 [react-router-dom](https://reactrouter.com/en/main)
 
 #                                   Technologies Used
