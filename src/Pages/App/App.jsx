@@ -20,15 +20,17 @@ function App() {
   }
   return (
       <main className="App" >
-        <div className='flex font-serif'>
+        <div className='font-serif'>
           {user?
               <>
-              <Routes>
-                  <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
-              </Routes>
+                <div className='flex'>
+                  <Routes>
+                      <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
+                  </Routes>
+                </div>
               </> 
               :
-              <div className="bg-indigo-400 h-screen">
+              <div >
                 <AuthPage setUser={updateUser}/>
               </div>
           }

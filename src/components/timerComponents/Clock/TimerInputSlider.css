@@ -1,4 +1,4 @@
-.input-slider {
+/* .input-slider {
 	-webkit-appearance: none;
 	height: 8px;
 	background: grey;
@@ -21,7 +21,7 @@
 	box-shadow: none;
 	border: none;
 	background: transparent;
-}
+} */
 
 
 /* Reference used -> https://relatablecode.com/how-to-make-a-simple-slider-component-in-react */
