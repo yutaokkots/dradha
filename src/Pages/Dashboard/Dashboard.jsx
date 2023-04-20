@@ -21,6 +21,7 @@ export default function Dashboard({user, setUser}) {
     // useState for timeContext - keeps track of current seconds of timer
     const [sessionTimer, setSessionTimer] = useState({elapsedSeconds: 0, totalSeconds: 0, elapsedMinutes: 0, totalMinutes: 0})
     const [timerStarted, setTimerStarted] = useState(false)
+    const [inputValue, setInputValue] = useState(1)
 
     // state for timer on
     const [timerOn, setTimerOn] = useState(false)
@@ -62,7 +63,7 @@ export default function Dashboard({user, setUser}) {
 
     return (
         <>  
-            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, isRunning}} >
+            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, pause, restart, isRunning, inputValue, setInputValue}} >
                     <div >
 
                             <div className="container">
@@ -94,7 +95,7 @@ export default function Dashboard({user, setUser}) {
                             </div>
                             }
                             {activeMenuItem === 2 &&
-                            <div>
+                            <div >
                                 <h1>Main Section</h1>
                                 <Inspiration />
                             </div>

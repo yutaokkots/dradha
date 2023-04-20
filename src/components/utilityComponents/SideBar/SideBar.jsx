@@ -31,15 +31,18 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                 <div className='side-bar-menu-item flex bg-land text-cardamom  w-screen'>
                     <ul className="flex flex-wrap items-center space-x-6 justify-between  p-3 mx-auto w-screen">
 
-                        <li
+                        <li 
+                            className='cursor-pointer'
                             value='1'
                             onClick={handlePageOpen}
                             >Timers</li>
                         <li
+                            className='cursor-pointer'
                             value='0'
                             onClick={handlePageOpen}
                             >Intents</li>
                         <li
+                            className='cursor-pointer'
                             value='2'
                             onClick={handlePageOpen}
                             >Inspiration</li>
@@ -51,21 +54,13 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                         <Clock/>
                     </div>
                             
-                    {(true) ?
+                    {(!isRunning) ?
                         <div>
-                            <h2>{timerStarted ? 'on' : 'off'}</h2>
+                            <h2>off</h2>
                         </div> 
                         :
                         <div>
                             <span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
-
-                            <button className="bg-sky-500 hover:bg-sky-700" onClick={pause}>Pause</button>
-                            <button className="bg-sky-500 hover:bg-sky-700" onClick={start}>Start</button>
-                            <button onClick={() => {
-                                            const time = new Date();
-                                            time.setSeconds(time.getSeconds() + 300);
-                                            restart(time)
-                                            }}>Restart</button>
                         </div>
                         }
 
@@ -82,3 +77,12 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
         </>
     )
 }
+
+
+// <button className="bg-sky-500 hover:bg-sky-700" onClick={pause}>Pause</button>
+// <button className="bg-sky-500 hover:bg-sky-700" onClick={start}>Start</button>
+// <button onClick={() => {
+//                 const time = new Date();
+//                 time.setSeconds(time.getSeconds() + 300);
+//                 restart(time)
+//                 }}>Restart</button>

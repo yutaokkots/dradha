@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './TimerInputSlider.css'
 
 
@@ -9,6 +9,7 @@ export default function TimerInputSlider( {setTimer, timerValue, initialValue} )
     function onChange(evt){
         setValue(evt.target.value)
         setTimer(value)
+        console.log(value)
     }
 
     return (
