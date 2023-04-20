@@ -7,11 +7,17 @@ export default function ToggleButton({toggler, toggleState}) {
       }
       return (
         <>
-            {toggleState > 0 ? 'Already registered?' : 'New User?'}<span> </span>
-            <button
-                className="hover:bg-sunset"
-                onClick={handleClick}
-            >{toggleState > 0 ? 'Log in' : 'Sign up'}</button>
+            <div className='flex justify-between'>
+                <div>
+                {toggleState > 0 ? 'Already registered?' : 'New User?'}<span> </span>
+                </div>
+              <div>
+                <button
+                    className="text-land"
+                    onClick={handleClick}
+                >{toggleState > 0 ? 'Log in' : 'Sign up'}</button>
+              </div>
+            </div>
         </>
       )
 }

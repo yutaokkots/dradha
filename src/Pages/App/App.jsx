@@ -23,11 +23,10 @@ function App() {
         <div className='font-serif'>
           {user?
               <>
-                <div className='flex'>
                   <Routes>
                       <Route path='/' element={<Dashboard user={user} setUser={setUser}/>} />
                   </Routes>
-                </div>
+
               </> 
               :
               <div >

@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaldi&family=Marko+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Jaldi&family=Marko+One&display=swap" rel="stylesheet')
 
+button {
+
+
+    
+}

@@ -30,18 +30,17 @@ export default function LoginForm({setUser}) {
 
     return (
         <>
-            <div class="rounded mt-20">
-
-
+            <div className="rounded-md m-5">
                     <form autoComplete="off" onSubmit={handleSubmit}>
-                    <div className='relative flex flex-row justify-between'>
-                        <label>Email</label>
-                        <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+                    <div className='relative flex-row justify-between  mt-2 mb-2'>
+                        <div><label>Email</label></div>
+                        <div><input className='text-cardamom' type="text" name="email" value={credentials.email} onChange={handleChange} required /></div>
                     </div>
-                    <div className='relative flex flex-row justify-between'>
-                        <label>Password</label>
-                        <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-                    </div><button type="submit">LOG IN</button>
+                    <div className='relative  flex-row justify-between'>
+                        <div><label>Password</label></div>
+                        <div><input className='text-cardamom' type="password" name="password" value={credentials.password} onChange={handleChange} required /></div>
+                    </div>
+                    <button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' type="submit">LOG IN</button>
                     </form>
 
                 <p className="error-message">&nbsp;{error}</p>

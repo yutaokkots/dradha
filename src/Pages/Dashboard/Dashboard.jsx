@@ -34,6 +34,7 @@ export default function Dashboard({user, setUser}) {
     function setGlobalTime(time){
         timerRef.current=time
     }
+    console.log(activeMenuItem)
     // function setGlobaltime is located and triggered at TimerComp.jsx -> setGlobalTime(convertSeconds(seconds,minutes,hours,days))
 
 
@@ -42,7 +43,7 @@ export default function Dashboard({user, setUser}) {
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
 
 
-                    <div className='fixed top-0 h-screen bg-vanilla text-cardamom shadow-lg' >
+                    <div >
                         Sidebar
 
                             <div className="">
@@ -55,14 +56,13 @@ export default function Dashboard({user, setUser}) {
                             </div>
                     </div>
 
-                    <div className="p-2 pt-1 text-2xl flex-1 h-screen" >
+
                         <div className='main-section container'>
                             {activeMenuItem === 0 &&
-                                <div className="bg-gray-50 w-full l-full">
+                                <div >
                                     <IntentComp 
                                         user={user}
                                         />
-                                    
                                 </div>
                                 }
                             {activeMenuItem === 1 &&
@@ -80,7 +80,7 @@ export default function Dashboard({user, setUser}) {
                             }
                             
                         </div>
-                    </div>
+
             </TimeContext.Provider>           
         </>
     

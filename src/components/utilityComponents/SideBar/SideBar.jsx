@@ -21,11 +21,11 @@ export default function SideBar({user, setUser, setMenu}) {
 
 
                 <div className="object-center">
-                    <a className="w-2 h-2" href="/"> <img width='150rem'  src={logo} /></a>
+                    <a className="" href="/"> <img width='150rem'  src={logo} /></a>
                 </div>
                         
 
-                <div className='side-bar-menu-item flex'>
+                <div className=''>
                     <div>
                         <Clock/>
                     </div>

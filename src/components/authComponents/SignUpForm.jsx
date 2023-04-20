@@ -32,23 +32,47 @@ export default class SignUpForm extends Component {
         const disable = this.state.password !== this.state.confirm;
         return (
         <div>
-            <div className="form-container">
+            <div className="rounded-md m-5">
             <form autoComplete="off" onSubmit={this.handleSubmit}>
-                <label>Name</label>
-                <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
-                <label>Email</label>
-                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
-                <label>Password</label>
-                <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
-                <label>Confirm</label>
-                <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-                <button type="submit" disabled={disable}>SIGN UP</button>
+                <div className='relative flex-row justify-between  mt-2 mb-2'>
+                    <div><label>Name</label></div>
+                    <div><input className='text-cardamom' type="text" name="name" value={this.state.name} onChange={this.handleChange} required /></div>
+                </div>
+                <div className='relative flex-row justify-between  mt-2 mb-2'>
+                    <div><label>Email</label></div>
+                    <div><input className='text-cardamom' type="email" name="email" value={this.state.email} onChange={this.handleChange} required /></div>
+                </div>
+
+                <div className='relative flex-row justify-between  mt-2 mb-2'>
+                    <div><label>Password</label></div>
+                    <div><input className='text-cardamom' type="password" name="password" value={this.state.password} onChange={this.handleChange} required /></div>
+                </div>
+                <div className='relative flex-row justify-between  mt-2 mb-2'>
+                    <div><label>Confirm</label></div>
+                    <div><input className='text-cardamom' type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required /></div>
+                </div>
+                <button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' type="submit" disabled={disable}>SIGN UP</button>
             </form>
             </div>
             <p className="error-message">&nbsp;{this.state.error}</p>
         </div>
         );
     }
-
 }
+
+{/* <div className="rounded-md m-5">
+<form autoComplete="off" onSubmit={handleSubmit}>
+<div className='relative flex-row justify-between  mt-2 mb-2'>
+    <div><label>Email</label></div>
+    <div><input className='' type="text" name="email" value={credentials.email} onChange={handleChange} required /></div>
+</div>
+<div className='relative  flex-row justify-between'>
+    <div><label>Password</label></div>
+    <div><input type="password" name="password" value={credentials.password} onChange={handleChange} required /></div>
+</div>
+<button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' type="submit">LOG IN</button>
+</form>
+
+<p className="error-message">&nbsp;{error}</p>
+</div> */}
 
