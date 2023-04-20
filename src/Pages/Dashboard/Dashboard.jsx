@@ -46,7 +46,7 @@ export default function Dashboard({user, setUser}) {
                     <div >
                         Sidebar
 
-                            <div className="">
+                            <div className="container">
                                     <SideBar 
                                         user={user} 
                                         setUser={setUser}

@@ -25,7 +25,7 @@ export default function SideBar({user, setUser, setMenu}) {
                 </div>
                         
 
-                <div className=''>
+                <div className='side-bar-menu-item flex'>
                     <div>
                         <Clock/>
                     </div>
@@ -33,18 +33,21 @@ export default function SideBar({user, setUser, setMenu}) {
                         <h2>{timerStarted ? 'timer on' : 'timer off'}</h2>
                     </div>
 
-                    <div
+                    <li
+  
                         value='0'
                         onClick={handlePageOpen}
-                        >Intents</div>
-                    <div
+                        >Intents</li>
+                    <li
+
                         value='1'
                         onClick={handlePageOpen}
-                        >Timers</div>
-                    <div
+                        >Timers</li>
+                    <li
+
                         value='2'
                         onClick={handlePageOpen}
-                        >Inspiration</div>
+                        >Inspiration</li>
                     
                     <div>
                         <LogoutButton user={user} setUser={setUser} />
