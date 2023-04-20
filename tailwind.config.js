@@ -13,6 +13,10 @@ module.exports = {
           'vanilla':'#fcf5eb'
         } 
       },
+      fontFamily:{
+        'serif': ['Marko One', 'serif'],
+        'sans': ['Jaldi', 'sans-serif']
+      },
       screens:{
         'sm' :'640px',
         'md' :'768px',
@@ -29,3 +33,4 @@ module.exports = {
   plugins: [],
 }
 }
+

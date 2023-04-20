@@ -3,9 +3,10 @@ import LogoutButton from '../../authComponents/LogoutButton'
 import Clock from '../../timerComponents/Clock/Clock'
 import { Link, useContext } from 'react'
 import SideBarItems from '../SideBarItems/SideBarItems'
-import './SideBar.css'
+
 import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 import logo from "../../../assets/logos/dradha_logo.svg"
+
 
 export default function SideBar({user, setUser, setMenu}) {
     const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
@@ -16,34 +17,40 @@ export default function SideBar({user, setUser, setMenu}) {
 
     return (
         <>
-            <div className='flex'>
-                <div className={`w-72 h-screen bg-vanilla`} >
-                        <div className="">
-                            <a href="/"><img className="h-12 w-12" src={logo} /></a>
-                        </div>
-                        <Clock/>
+            <div className='flex flex-col sm:flex-wid'>
 
-                        <h2>{timerStarted ? 'timer on' : 'timer off'}</h2>
 
-                        <div className='side-bar-menu-item' style={{border:'1px solid rgb(99, 22, 255)'}}>
-                            <ul>
-                                <li
-                                    value='0'
-                                    onClick={handlePageOpen}
-                                    >Intents</li>
-                                <li
-                                    value='1'
-                                    onClick={handlePageOpen}
-                                    >Timers</li>
-                                <li
-                                    value='2'
-                                    onClick={handlePageOpen}
-                                    >Inspiration</li>
-                            </ul>
-                        </div>
-
-                        <LogoutButton user={user} setUser={setUser} />
+                <div className="object-center">
+                    <a className="w-2 h-2" href="/"> <img width='150rem'  src={logo} /></a>
                 </div>
+                        
+
+                <div className='side-bar-menu-item flex'>
+                    <div>
+                        <Clock/>
+                    </div>
+                    <div>
+                        <h2>{timerStarted ? 'timer on' : 'timer off'}</h2>
+                    </div>
+
+                    <div
+                        value='0'
+                        onClick={handlePageOpen}
+                        >Intents</div>
+                    <div
+                        value='1'
+                        onClick={handlePageOpen}
+                        >Timers</div>
+                    <div
+                        value='2'
+                        onClick={handlePageOpen}
+                        >Inspiration</div>
+                    
+                    <div>
+                        <LogoutButton user={user} setUser={setUser} />
+                    </div>
+                </div>
+
             </div>
         </>
     )

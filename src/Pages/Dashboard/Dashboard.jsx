@@ -4,7 +4,7 @@ import Timers from '../../components/utilityComponents/Timers/Timers'
 import IntentComp from '../../components/intentComponents/IntentComp'
 import Inspiration from '../../components/Inspiration/Inspiration'
 import './Dashboard.css'
-
+import menu from "../../assets/elements/menu.svg"
 
 
 //////// createContext
@@ -28,7 +28,8 @@ export default function Dashboard({user, setUser}) {
     // state for timer on
     const [timerOn, setTimerOn] = useState(false)
 
-    //const [update, setUpdate] = useState([0, 0])
+    // state for closing and opening side-bar
+    const [sideBarOpen, setSideBarOpen] = useState(true)
     
     function setGlobalTime(time){
         timerRef.current=time
@@ -39,42 +40,47 @@ export default function Dashboard({user, setUser}) {
     return (
         <>  
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
-                <div className='container'>
-                    
-                    <div className="tail">
-                            <SideBar 
-                                user={user} 
-                                setUser={setUser}
-                                sessionTimer={sessionTimer}
-                                setMenu={setActiveMenuItem}
-                                />
+
+
+                    <div className='fixed top-0 h-screen bg-vanilla text-cardamom shadow-lg' >
+                        Sidebar
+
+                            <div className="">
+                                    <SideBar 
+                                        user={user} 
+                                        setUser={setUser}
+                                        sessionTimer={sessionTimer}
+                                        setMenu={setActiveMenuItem}
+                                        />
+                            </div>
                     </div>
 
-                    <div className='main-section container'>
-                        {activeMenuItem === 0 &&
-                            <div className="bg-gray-50 w-full l-full">
-                                <IntentComp 
-                                    user={user}
-                                    />
-                                
+                    <div className="p-2 pt-1 text-2xl flex-1 h-screen" >
+                        <div className='main-section container'>
+                            {activeMenuItem === 0 &&
+                                <div className="bg-gray-50 w-full l-full">
+                                    <IntentComp 
+                                        user={user}
+                                        />
+                                    
+                                </div>
+                                }
+                            {activeMenuItem === 1 &&
+                            <div style={{border: '2px solid rgb(255, 99, 71)'}}>
+                                <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in components/utilityComponents/Timers</p>
+                                <Timers setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
                             </div>
                             }
-                        {activeMenuItem === 1 &&
-                        <div style={{border: '2px solid rgb(255, 99, 71)'}}>
-                            <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in components/utilityComponents/Timers</p>
-                            <Timers setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
+                            {activeMenuItem === 2 &&
+                            <div style={{border: '2px solid rgb(255, 99, 71)'}}>
+                                <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in Dashboard</p>
+                                <h1>Main Section</h1>
+                                <Inspiration />
+                            </div>
+                            }
+                            
                         </div>
-                        }
-                        {activeMenuItem === 2 &&
-                        <div style={{border: '2px solid rgb(255, 99, 71)'}}>
-                            <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in Dashboard</p>
-                            <h1>Main Section</h1>
-                            <Inspiration />
-                        </div>
-                        }
-                        
                     </div>
-                </div>
             </TimeContext.Provider>           
         </>
     

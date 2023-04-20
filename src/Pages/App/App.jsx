@@ -19,7 +19,8 @@ function App() {
     setUser(userState)
   }
   return (
-      <main className="App bg-" >
+      <main className="App" >
+        <div className='flex font-serif'>
           {user?
               <>
               <Routes>
@@ -27,8 +28,11 @@ function App() {
               </Routes>
               </> 
               :
-              <AuthPage setUser={updateUser}/>
+              <div className="bg-indigo-400 h-screen">
+                <AuthPage setUser={updateUser}/>
+              </div>
           }
+          </div>
       </main>
   )
 }

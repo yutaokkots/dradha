@@ -7,9 +7,11 @@ export default function ToggleButton({toggler, toggleState}) {
       }
       return (
         <>
+            {toggleState > 0 ? 'Already registered?' : 'New User?'}<span> </span>
             <button
+                className="hover:bg-sunset"
                 onClick={handleClick}
-            >{toggleState > 0 ? 'Already registered? Log in' : 'New User? Sign up'}</button>
+            >{toggleState > 0 ? 'Log in' : 'Sign up'}</button>
         </>
       )
 }
