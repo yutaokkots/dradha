@@ -29,12 +29,7 @@ export default function AddIntent({user, intents}) {
 
     return (
         <>
-            <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-                <ul>
-                    {intents.map((intent,idx)=>  
-                        !intent.intentComplete && <Intent key={idx} intent={intent}/> )}
-                </ul>
-            </div>
+
             <div className="p-6 max-w-sm mx-auto bg-teal-900 rounded-xl shadow-lg flex items-center space-x-4">
                 <form
                     onSubmit={handleSubmit}>
@@ -48,6 +43,13 @@ export default function AddIntent({user, intents}) {
                     <button className="bg-sky-500 hover:bg-sky-700" type='submit'>Submit</button>
                 </form>
             </div>
+            <div className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+                <ul>
+                    {intents.map((intent,idx)=>  
+                        !intent.intentComplete && <Intent key={idx} intent={intent}/> )}
+                </ul>
+            </div>
+
             <div>
                 <ul>
                     {intents.map((intent,idx)=> 

@@ -4,14 +4,11 @@ import Timers from '../../components/utilityComponents/Timers/Timers'
 import IntentComp from '../../components/intentComponents/IntentComp'
 import Inspiration from '../../components/Inspiration/Inspiration'
 import './Dashboard.css'
-import menu from "../../assets/elements/menu.svg"
-
+import { useTimer } from 'react-timer-hook'
 
 //////// createContext
 // context hook for saving time information 
 export const TimeContext = createContext()
-
-const initSessionTimer = {flow:[20, -5, 20, -5, 20, -30], task:0, timer:0}
 
 export default function Dashboard({user, setUser}) {
     // const timerRef = useRef() for keeping track of time
@@ -34,25 +31,51 @@ export default function Dashboard({user, setUser}) {
     function setGlobalTime(time){
         timerRef.current=time
     }
-    console.log(activeMenuItem)
     // function setGlobaltime is located and triggered at TimerComp.jsx -> setGlobalTime(convertSeconds(seconds,minutes,hours,days))
 
+    const expiryTimestamp = 20
+    // declaring useTimer values to be used in this component and child components
+    const { seconds, minutes, hours, days, isRunning, 
+        start, pause, resume, restart,
+        } = useTimer({ expiryTimestamp, onExpire: () => setTimerStarted(false)});
+
+    // convertSeconds() -> converting input time  information to seconds so it displays in the progress bar
+    function convertSeconds(seconds = 0, minutes = 0, hours = 0, days = 0){
+        return seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
+    }
+
+    const inputTime = sessionTimer.elapsedMinutes > 0 && timerStarted ?  sessionTimer.elapsedMinutes : 0
+
+
+    useEffect(()=>{
+        let elapsedSeconds = convertSeconds(seconds,minutes,hours,days)
+        let totalSeconds = convertSeconds(0, inputTime)
+        const newSession = {
+            elapsedSeconds: elapsedSeconds,
+            totalSeconds: totalSeconds, 
+            elapsedMinutes: Math.ceil(elapsedSeconds/60), 
+            totalMinutes: inputTime}
+        setGlobalTime(elapsedSeconds)
+        setSessionTimer(newSession)
+
+    }, [seconds, minutes, hours, days])
 
     return (
         <>  
-            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted}} >
-
-
+            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, isRunning}} >
                     <div >
-                        Sidebar
 
                             <div className="container">
+                                {}
                                     <SideBar 
                                         user={user} 
                                         setUser={setUser}
-                                        sessionTimer={sessionTimer}
                                         setMenu={setActiveMenuItem}
+                                        start={start}
+                                        pause={pause}
+                                        restart={restart}
                                         />
+                                    
                             </div>
                     </div>
 
@@ -66,14 +89,12 @@ export default function Dashboard({user, setUser}) {
                                 </div>
                                 }
                             {activeMenuItem === 1 &&
-                            <div style={{border: '2px solid rgb(255, 99, 71)'}}>
-                                <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in components/utilityComponents/Timers</p>
+                            <div >
                                 <Timers setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
                             </div>
                             }
                             {activeMenuItem === 2 &&
-                            <div style={{border: '2px solid rgb(255, 99, 71)'}}>
-                                <p style={{color: 'rgb(255, 99, 71)'}}>Timers.jsx in Dashboard</p>
+                            <div>
                                 <h1>Main Section</h1>
                                 <Inspiration />
                             </div>

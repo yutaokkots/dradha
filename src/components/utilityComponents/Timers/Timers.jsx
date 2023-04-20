@@ -7,7 +7,7 @@ import {useEffect} from 'react'
 export default function Timers({setGlobalTime, timerRef, timerOn}) {
     return (
         <>
-            <div style={{border: '2px solid rgb(255, 99, 71)'}}>
+            <div className="bg-ocean w-screen h-screen">
                 <Meditation setGlobalTime={setGlobalTime} timerRef={timerRef} timerOn={timerOn}/>
             </div>
         </>  

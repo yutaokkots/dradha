@@ -20,12 +20,6 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, 
     const [second, setSecond] = useState(initialSecond)
     const [totalSecond, setTotalSecond] = useState(initialTotalSecond)
 
-    // When the timer page is triggered, the global context, TimerContext's 'onPage' state is set to true. 
-    // Use this state to control -> unload the "sessionTimer" information into the current timer, and set the progress bar state. 
-    // or if sessionTimer is 0, then proceed as normal with all values set to default of 0
-
-
-
     // useEffect() -> detects changes in seconds value to re-render progress bar
     useEffect(()=>{
         let elapsedSeconds = convertSeconds(seconds,minutes,hours,days)
@@ -76,9 +70,8 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, 
 
     return (
         <>
-            <div  style={{textAlign: 'center'}}>
-                <h1>Timer</h1>
-                <div style={{fontSize: '100px', display:'flex', justifyContent: 'center'}}>
+            <div  className="flex items-center justify-center  align-middle pt-10">
+                <div className="flex items-center justify-center ">
                     <ProgressBar
                         radius={55}
                         transition={'1s ease'}
@@ -87,15 +80,23 @@ export default function TimerComp({inputTime, timerRef, setGlobalTime, timerOn, 
                         progress={second}
                         steps={totalSecond}
                         />
+                </div>
+
+            </div>
+
+            <div>
+                <div className="pt-5 text-vanilla text-xl">
                     <div className='digital-timer'>
-                    {(hours) ? <span>{twoDigits(hours)}</span>: <span></span>}<span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
+                    {(hours) ? <span>{twoDigits(hours)}</span>: <span></span>} <span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
                     </div>
                 </div>
-                <p>{isRunning ? 'Running' : 'Not running'}</p>
-                <button className="bg-sky-500 hover:bg-sky-700" onClick={pause}>Pause</button>
-                <button className="bg-sky-500 hover:bg-sky-700" onClick={() => setTimerComp(inputTime)}
+
+            </div>
+            <div className='p-2 flex flex-row items-center justify-between space-x-6 '>
+                <button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={pause}>Pause</button>
+                <button className=' bg-land text-vanilla hover:text-cardamom hover:bg-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={() => setTimerComp(inputTime)}
                     >Start</button>
-                <button className="bg-sky-500 hover:bg-sky-700" onClick={clearTimer}
+                <button className=' text-vanilla bg-sunset hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={clearTimer}
                     >Reset</button>
             </div>
         </>

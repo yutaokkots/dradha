@@ -11,13 +11,6 @@ export default function TimerInputSlider( {setTimer, timerValue, initialValue} )
         setTimer(value)
     }
 
-    // function getBackgroundSize(){
-    //     return {
-    //         backgroundSize: `${(value * 100) / maxValue} % 100%`,
-	// };
-
-
-
     return (
         <>
             {timerValue}
