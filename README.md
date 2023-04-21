@@ -1,30 +1,69 @@
-#                                   Dradha 
-
-https://trello.com/b/GJbRgbRb/dradha-main-board
-<br>
-https://whimsical.com/N2C9ZXnuNMe18THM1xnyGu
-<br>
-<img src='./readme_files/ERD-Dradha.png'>
+<div align="center">
+#Dradha 
 
 
-#                                   Description
+#Description
 
 Dradha is a meditation and productivity app. It allows one to set a timer, and record thoughts. If there is a thought to be meditated on, or an objective to be reached in a certain time, simply write the item, and start the timer. 
 
 Dradha is a Full-Stack MERN App that leverages the React framework, and is built upon Vite, Express, Node.js, Express.js, Mongoose, MongoDB, and styled with Tailwind CSS. 
+## [Dradha](https://dradha.herokuapp.com/)
 
 
+</div>
 
 
-#                                   References
+<div align="center">
+#Functionality
+</div>
+This ver 1.0 of Dradha was created with mobile in mind. 
+
+<img src="./readme_files/dradha-01.png" width="50%"/>
+Write down a thought.
+<img src="./readme_files/dradha-02.png" width="50%"  />
+
+And add it to a list.
+<img src="./readme_files/dradha-03.png" width="50%" " />
+
+Set a timer. 
+<img src="./readme_files/dradha-04.png" width="50%"  />
+
+And be inspired. 
+<img src="./readme_files/dradha-05.png" width="50%"  />
+
+#Functionality
+
+<div align="center">
+#Process
+</div>
+<img src="./readme_files/code-model.png" width="50%"  />
+The main model of the app simply stores user information. 
+<img src="./readme_files/code-controller.png" width="50%"  />
+The controller includes a search function to find a single quote. 
+<img src="./readme_files/code-comp.png" width="50%"  />
+<img src="./readme_files/code-comp-02.png" width="50%"  />
+The timer portion includes various components that interact with each other at different levels. 
+The different components are controlled by a series of different states that are managed by React Context. 
+
+
+</div>
+<ul style-type:'none'>
+<li>
 [react-timer-hook](https://github.com/amrlabib/react-timer-hook)
+</li>
+<li>
 [react-customizable-progressbar](https://github.com/martyan/react-customizable-progressbar)
+</li>
+<li>
 [react-use-sound](https://github.com/joshwcomeau/use-sound)
+</li>
+<li>
 [react-router-dom](https://reactrouter.com/en/main)
-
-#                                   Technologies Used
-
-
+</li>
+</ul>
+<div align="center">
+#Technologies Used
+</div>
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -35,7 +74,7 @@ Dradha is a Full-Stack MERN App that leverages the React framework, and is built
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
 ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
-
+![Toyota](https://a11ybadges.com/badge?logo=toyota)
 ![Adobe Illustrator](https://img.shields.io/badge/adobe%20illustrator-%23FF9A00.svg?style=for-the-badge&logo=adobe%20illustrator&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 [![Npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://https://npmjs.com/)
@@ -46,4 +85,7 @@ Dradha is a Full-Stack MERN App that leverages the React framework, and is built
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 
-#                                     Acknowledgements
+<div align="center">
+#Acknowledgements
+<div>
+I personally thank Vilem, Eric, Anthony, Liam, Kolbi, Allan, Shay, Austin, Collin, Maria, Kelli, and Kendall for the late night support and help throughout this project. 

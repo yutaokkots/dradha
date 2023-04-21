@@ -11,16 +11,7 @@ async function getAll(req, res){
 
     }
 }
-//Intent.find({}, function(intents) {
-//If (intentUserId === req.user._id) {
 
-function createJWT(user) {
-    return jwt.sign(
-        {user},
-        process.env.SECRET,
-        { expiresIn: '24h' }
-    )
-}
 
 async function create(req, res){
     try {
@@ -33,7 +24,6 @@ async function create(req, res){
 
 async function deleteOne(req,res){
     try{
-        //const userIntents = await Intent.find({ intentUserId: req.user._id })
         await Intent.deleteOne({_id: req.params.id})
     } catch(err){
         res.status(400).json('Error')

@@ -16,7 +16,6 @@ export const TimeContext = createContext()
 export default function Dashboard({user, setUser}) {
     // select which panel to show on dashboard
     const [activeMenuItem, setActiveMenuItem] = useState(0);
-    const dashMenuRef = useRef(0);
 
     // useState for timeContext - keeps track of current seconds of timer
     const [sessionTimer, setSessionTimer] = useState({elapsedSeconds: 0, totalSeconds: 0, elapsedMinutes: 0, totalMinutes: 0})
@@ -97,7 +96,6 @@ export default function Dashboard({user, setUser}) {
                                     
                             </div>
                     </div>
-
 
                         <div >
                             {activeMenuItem === 0 &&

@@ -82,6 +82,7 @@ export default function AddIntent({user, intents}) {
                     </ul>
                 </div>
                 }
+
                 
             </div>
         </>
