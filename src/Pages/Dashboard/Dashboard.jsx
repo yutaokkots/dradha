@@ -7,6 +7,7 @@ import './Dashboard.css'
 import { useTimer } from 'react-timer-hook'
 import { useSound } from 'use-sound'
 import chime from '../../assets/sounds/singing-bell-hit-1-105400.mp3'
+import * as inspAPI from '../../utilities/insp-api'
 
 //////// createContext
 // context hook for saving time information 
@@ -32,7 +33,21 @@ export default function Dashboard({user, setUser}) {
 
     // useSound for chime sound
     const [play] = useSound(chime)
+    
+    // getQuote from server
+    const [quote, setQuote] = useState('')
 
+    useEffect(()=>{
+        async function getQuote(){
+            try{
+                const newQuote = await inspAPI.getQuote()
+                setQuote(newQuote)
+            } catch(err){
+                console.error('err', err)
+            }
+        }
+        getQuote()
+    },[])
 
     // convertSeconds() -> converting input time  information to seconds so it displays in the progress bar
     function convertSeconds(seconds = 0, minutes = 0, hours = 0, days = 0){
@@ -60,21 +75,11 @@ export default function Dashboard({user, setUser}) {
         }
     }, [isRunning])
 
-    // console.log('second (in useTimer)', seconds)
-    // console.log('minutes (in useTimer) ', minutes)
-    // console.log('sessionTimer.elapsedSeconds) ', sessionTimer.elapsedSeconds)
-    // console.log('sessionTimer.totalSeconds) ', sessionTimer.totalSeconds)
-    // console.log('sessionTimer.elapsedMinutes) ', sessionTimer.elapsedMinutes)
-    // console.log('isRunning ', isRunning)
-    // console.log('inputValue (the value user inputs)', inputValue)
-    // console.log('timerStarted )', timerStarted)
-
-
     return (
         <>  
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, start, pause, restart, isRunning, inputValue, setInputValue, activeMenuItem}} >
                     <div >
-                            <div className="container">
+                            <div >
                                 {}
                                     <SideBar 
                                         user={user} 
@@ -89,7 +94,7 @@ export default function Dashboard({user, setUser}) {
                     </div>
 
 
-                        <div className='main-section container'>
+                        <div >
                             {activeMenuItem === 0 &&
                                 <div >
                                     <IntentComp 
@@ -104,8 +109,7 @@ export default function Dashboard({user, setUser}) {
                             }
                             {activeMenuItem === 2 &&
                             <div >
-                                <h1>Main Section</h1>
-                                <Inspiration />
+                                <Inspiration quote={quote[0]}/>
                             </div>
                             }
                             

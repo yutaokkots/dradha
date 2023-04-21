@@ -1,32 +1,24 @@
 import React, {useEffect, useState} from 'react'
-import * as inspAPI from '../../utilities/insp-api'
 
 
-export default function Inspiration() {
-    const [quote, setQuote] = useState('')
 
-    useEffect(()=>{
-        async function getQuote(){
-            try{
-                const quote = await inspAPI.getQuote()
-                setQuote(quote)
+export default function Inspiration({quote}) {
 
-            } catch(err){
-                console.error('err', err)
-            }
-        }
-        getQuote()
-    })
+
+
 
   return (
     <>
-        <h1>quote here</h1>
-
-
-        
+        <div className='flex items-center'>
+            <div className="p-6 max-w-sm mt-3 mb-3 mx-auto w-3/4 bg-cardamom text-vanilla rounded-md shadow-lg flex flex-col">
+                
+                <div>{quote.quote}</div>
+                <div> {quote.source}</div>
+                
+            </div>
+        </div>
+    
     </>
 
   )
 }
-{/* <div>{quote}</div>
-<div>Inspirational quotes provided by <a href="https://zenquotes.io/" target="_blank">ZenQuotes API</a></div> */}

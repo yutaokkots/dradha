@@ -1,8 +1,9 @@
-import sendRequest from "./ext-send-requests";
+import sendRequest from "./send-requests";
 
-const BASE_URL = 'https://zenquotes.io/api'
-const PROXY = 'https://cors-anywhere.herokuapp.com/'
+const BASE_URL = '/api/quotes'
+
 
 export function getQuote(){
-    return sendRequest(PROXY + `${BASE_URL}/quotes`)
+    console.log('send')
+    return sendRequest(`${BASE_URL}/random`)
 }

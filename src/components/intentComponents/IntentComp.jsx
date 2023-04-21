@@ -36,8 +36,6 @@ export default function IntentComp({user}) {
             }
         }
         getAllIntents()
-
-
     },[pageReload])
 
 

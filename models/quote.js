@@ -7,7 +7,7 @@ const quotesSchema = new Schema({
         required: true
     },
     source: {
-        type: Date,
+        type: String,
         required: false
     },
     },{
@@ -16,4 +16,11 @@ const quotesSchema = new Schema({
 });
   
 
-  module.exports = mongoose.model('Quotes', quotesSchema);
+quotesSchema.statics.getRand = function(){
+    let all = this.find({})
+    return all 
+
+}
+
+
+  module.exports = mongoose.model('Quote', quotesSchema);

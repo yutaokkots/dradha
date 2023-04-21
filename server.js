@@ -20,9 +20,10 @@ app.use(require('./config/checkToken'));
 // Put all API routes here (before the catch-all)
 app.use('/api/intents', require('./routes/api/intents'))
 
+app.use('/api/quotes', require('./routes/api/quotes'))
+
 app.use('/api/users', require('./routes/api/users'));
 
-// 'api/intents/new'
 
 // catch-all route
 app.get('/*', function(req, res) {

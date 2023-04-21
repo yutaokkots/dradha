@@ -40,9 +40,5 @@ userSchema.pre('save', async function(next) {
     return next();
   });
 
-//notes:  Although technically not a validator, unique: true creates a unique index in the database which will trigger an error if violated.
-//trim: This transform causes Mongoose to trim spaces before and after the string before saving.
-//lowercase: This transform causes Mongoose to convert the string to lowercase before saving.
-// do not add properties used to embed related data or reference 1:M / M:M relationships
 
 module.exports = mongoose.model('User', userSchema);
