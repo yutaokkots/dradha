@@ -1,8 +1,8 @@
 <div align="center">
-#Dradha 
+#                                   Dradha 
 
 
-#Description
+#                                   Description
 
 Dradha is a meditation and productivity app. It allows one to set a timer, and record thoughts. If there is a thought to be meditated on, or an objective to be reached in a certain time, simply write the item, and start the timer. 
 
@@ -14,7 +14,7 @@ Dradha is a Full-Stack MERN App that leverages the React framework, and is built
 
 
 <div align="center">
-#Functionality
+#                                   Functionality
 </div>
 This ver 1.0 of Dradha was created with mobile in mind. 
 
@@ -31,11 +31,11 @@ Set a timer.
 And be inspired. 
 <img src="./readme_files/dradha-05.png" width="50%"  />
 
-#Functionality
+
 
 <div align="center">
-#Process
-</div>
+#                                   Process
+
 <img src="./readme_files/code-model.png" width="50%"  />
 The main model of the app simply stores user information. 
 <img src="./readme_files/code-controller.png" width="50%"  />
@@ -46,7 +46,7 @@ The timer portion includes various components that interact with each other at d
 The different components are controlled by a series of different states that are managed by React Context. 
 
 
-</div>
+
 <ul style-type:'none'>
 <li>
 [react-timer-hook](https://github.com/amrlabib/react-timer-hook)
@@ -61,9 +61,9 @@ The different components are controlled by a series of different states that are
 [react-router-dom](https://reactrouter.com/en/main)
 </li>
 </ul>
-<div align="center">
-#Technologies Used
 </div>
+#Technologies Used
+
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -86,6 +86,6 @@ The different components are controlled by a series of different states that are
 [![made-with-javascript](https://img.shields.io/badge/Made%20with-JavaScript-1f425f.svg)](https://www.javascript.com)
 
 <div align="center">
-#Acknowledgements
+#                                   Acknowledgements
 <div>
 I personally thank Vilem, Eric, Anthony, Liam, Kolbi, Allan, Shay, Austin, Collin, Maria, Kelli, and Kendall for the late night support and help throughout this project. 
