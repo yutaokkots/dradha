@@ -60,14 +60,14 @@ export default function Dashboard({user, setUser}) {
         }
     }, [isRunning])
 
-    console.log('second (in useTimer)', seconds)
-    console.log('minutes (in useTimer) ', minutes)
-    console.log('sessionTimer.elapsedSeconds) ', sessionTimer.elapsedSeconds)
-    console.log('sessionTimer.totalSeconds) ', sessionTimer.totalSeconds)
-    console.log('sessionTimer.elapsedMinutes) ', sessionTimer.elapsedMinutes)
-    console.log('isRunning ', isRunning)
-    console.log('inputValue (the value user inputs)', inputValue)
-    console.log('timerStarted )', timerStarted)
+    // console.log('second (in useTimer)', seconds)
+    // console.log('minutes (in useTimer) ', minutes)
+    // console.log('sessionTimer.elapsedSeconds) ', sessionTimer.elapsedSeconds)
+    // console.log('sessionTimer.totalSeconds) ', sessionTimer.totalSeconds)
+    // console.log('sessionTimer.elapsedMinutes) ', sessionTimer.elapsedMinutes)
+    // console.log('isRunning ', isRunning)
+    // console.log('inputValue (the value user inputs)', inputValue)
+    // console.log('timerStarted )', timerStarted)
 
 
     return (

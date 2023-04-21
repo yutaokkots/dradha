@@ -25,7 +25,7 @@ const intentLikesSchema = new Schema({
   },
   likes: { 
       type: Number, 
-      default: 1 },
+      default: 0},
   }, {
       toJSON: { virtuals: true }
 });
@@ -42,6 +42,10 @@ const intentSchema = new Schema({
     intentComplete: { 
         type: Boolean, 
         default: false 
+    },
+    intentPublic: { 
+      type: Boolean, 
+      default: false 
     },
     intentLikes: [intentLikesSchema],
     intentFeedback: [intentFeedbackSchema]

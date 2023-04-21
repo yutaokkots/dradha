@@ -16,7 +16,7 @@ export default function IntentComp({user}) {
     const updateRef = useRef()
     // state for holding user's intents from db
     const [masterIntents, setMasterIntents] = useState([])  
-
+    const [unfinishedInt, setUnfinishedInt] = useState([])
     // useState with IntentContext - keeps track of changing components in intents comp with a boolean
     const [pageReload, setPageReload] = useState(true)
 
@@ -27,12 +27,17 @@ export default function IntentComp({user}) {
             try{
                 const intents = await intentsAPI.getAll()
                 setMasterIntents(intents)
-
+                const unfinished = intents.filter(intent =>
+                    intent.intentComplete === false
+                )
+                setUnfinishedInt(unfinished)
             } catch(err){
                 console.error('err', err)
             }
         }
         getAllIntents()
+
+
     },[pageReload])
 
 
@@ -40,7 +45,7 @@ export default function IntentComp({user}) {
         <>  
             <IntentContext.Provider value={{pageReload, setPageReload}}>
                 <div>
-                    <AddIntent user={user} intents={masterIntents} updateRef={updateRef} style={{border: '2px solid rgb(255, 99, 71)'}}/>
+                    <AddIntent user={user} intents={unfinishedInt} updateRef={updateRef} />
                 </div>
             </IntentContext.Provider>
         </>

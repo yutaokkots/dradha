@@ -38,12 +38,12 @@ export default function Intent({intent, setUpdate}) {
                   name='startTimer'
 
                   >start timer</button>
-              <button
+              <button className=' border-2 m-1 border-sunset p-1 rounded-md hover:bg-red-500 hover:text-vanilla hover:border mt-3'
                   name='deleteOne'
                   value='deleteOne'
                   onClick={deleteOne}
                   >delete</button>
-              <button
+              <button className=' border-2 m-1 border-sunset p-1 rounded-md hover:bg-sunset hover:text-vanilla mt-3'
                   name='completeOne'
                   value='completeOne'
                   onClick={completeOne}
