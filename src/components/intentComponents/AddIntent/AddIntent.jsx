@@ -73,25 +73,25 @@ export default function AddIntent({user, intents}) {
                 </div>
 
 
-                { intents.length > 0 && <div className="p-6 max-w-sm mx-auto mt-2 mb-3 w-3/4 bg-white rounded-xl shadow-lg flex items-center" >
-                    <ul>
+                 <div className="p-6 max-w-sm mx-auto mt-2 mb-3 w-3/4 bg-white  bg-opacity-95 rounded-xl shadow-lg flex items-center" >
+                        <ul>
+                            <h3 className="text-cardamom py-2 text-lg">In progress</h3>
+                            {intents.map((intent,idx)=>  
+                                !intent.intentComplete && <Intent key={idx} intent={intent}/> )}
 
-                        {intents.map((intent,idx)=>  
-                            !intent.intentComplete && <Intent key={idx} intent={intent}/> )}
-
-                    </ul>
-                </div>
-                }
+                        </ul>
+                    </div>
+                    <div className="p-6 max-w-sm mx-auto mt-2 mb-3 w-3/4 bg-opacity-90 bg-white text-gray-400 rounded-xl  shadow-lg flex items-center" >
+                        <ul>
+                        <h3 className="text-cardamom py-2 text-lg">Completed</h3>
+                            {intents.map((intent,idx)=> 
+                                intent.intentComplete && <Intent key={idx} intent={intent}/> )} 
+                        </ul>
+                    </div>
+                
 
                 
             </div>
         </>
     )
 }
-
-{/* <div>
-<ul>
-    {intents.map((intent,idx)=> 
-        intent.intentComplete && <Intent key={idx} intent={intent}/> )} 
-</ul>
-</div> */}

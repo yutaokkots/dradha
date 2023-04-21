@@ -43,7 +43,7 @@ export default function IntentComp({user}) {
         <>  
             <IntentContext.Provider value={{pageReload, setPageReload}}>
                 <div>
-                    <AddIntent user={user} intents={unfinishedInt} updateRef={updateRef} />
+                    <AddIntent user={user} intents={masterIntents} updateRef={updateRef} />
                 </div>
             </IntentContext.Provider>
         </>
