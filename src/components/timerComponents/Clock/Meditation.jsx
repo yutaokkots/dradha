@@ -24,9 +24,15 @@ export default function Meditation({ timerRef}) {
     }
 
     return (
-        <div style={{textAlign: 'center'}}>
-            <TimerComp inputTime={customMedTime} />
-            <TimerInputSlider setTimer={resetTime} timerValue={customMedTime} initialValue={initialTimerValue} />
-        </div>
+        <>
+            <div className='flex items-center'>
+                <div className='p-6 max-w-sm mt-5 mx-auto w-3/4  bg-vanilla text-cardamom rounded-xl shadow-lg'>
+                    <TimerComp inputTime={customMedTime} />
+                    <div className='flex items-center justify-center'>
+                    <TimerInputSlider setTimer={resetTime} timerValue={customMedTime} initialValue={initialTimerValue} />
+                    </div>
+                </div>
+            </div>
+        </>
       );
 }

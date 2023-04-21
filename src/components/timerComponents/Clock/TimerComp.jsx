@@ -62,7 +62,7 @@ export default function TimerComp({inputTime}) {
 
             </div>
             <div>
-                <div className="pt-5 text-vanilla text-xl">
+                <div className="pt-5 text-cardamom flex items-center justify-center text-xl">
                     <div className='digital-timer'>
                     {(hours) ? <span>{twoDigits(hours)}</span>: <span></span>} <span>{twoDigits(minutes)}</span>:<span>{twoDigits(seconds)}</span>
                     </div>
@@ -70,9 +70,9 @@ export default function TimerComp({inputTime}) {
             </div>
             
             <div className='p-2 flex flex-row items-center justify-between space-x-6 '>
-                <button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={onPause}>Pause</button>
+                <button className=' text-cardamom border-2 border-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={onPause}>Pause</button>
                 
-                <button className=' bg-land text-vanilla hover:text-cardamom hover:bg-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={() => setTimerComp(inputValue)}
+                <button className=' bg-land text-vanilla hover:text-cardamom hover:bg-vanilla hover:border-2 hover:border-cardamom py-1 px-1 rounded mt-5 mb-5' onClick={() => setTimerComp(inputValue)}
                     >Start</button>
                 
                 <button className=' text-vanilla bg-sunset hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={clearTimer}

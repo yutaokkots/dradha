@@ -24,7 +24,7 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
         <>
             <div className='flex flex-col sm:flex-wid'>
 
-                <div className="flex items-center justify-center p-4  bg-vanilla w-screen">
+                <div className="flex items-center justify-center p-4 pt-6 bg-vanilla w-screen">
                     <a className="" href="/"> <img width='150rem'  src={logo} /></a>
                 </div>
 
