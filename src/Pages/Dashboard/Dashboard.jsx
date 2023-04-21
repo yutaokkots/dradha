@@ -36,6 +36,11 @@ export default function Dashboard({user, setUser}) {
     
     // getQuote from server
     const [quote, setQuote] = useState('')
+    const [newQuote, setNewQuote] = useState(1)
+
+    function getNewQuote(){
+        setNewQuote(-newQuote)
+    }
 
     useEffect(()=>{
         async function getQuote(){
@@ -47,7 +52,7 @@ export default function Dashboard({user, setUser}) {
             }
         }
         getQuote()
-    },[])
+    },[newQuote])
 
     // convertSeconds() -> converting input time  information to seconds so it displays in the progress bar
     function convertSeconds(seconds = 0, minutes = 0, hours = 0, days = 0){
@@ -109,7 +114,7 @@ export default function Dashboard({user, setUser}) {
                             }
                             {activeMenuItem === 2 &&
                             <div >
-                                <Inspiration quote={quote[0]}/>
+                                <Inspiration getNewQuote={getNewQuote} quote={quote[0]}/>
                             </div>
                             }
                             

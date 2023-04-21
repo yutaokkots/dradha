@@ -6,7 +6,6 @@ async function getRand(req, res){
     console.log('controller')
     try {
         const quote = await Quote.aggregate([{$sample:{size: 1}}])
-        console.log(quote)
         res.json(quote)
     }catch(err){
         res.status(400).json('Not found')

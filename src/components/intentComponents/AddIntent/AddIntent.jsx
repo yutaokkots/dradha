@@ -43,7 +43,7 @@ export default function AddIntent({user, intents}) {
         <style>{`body { background-image: url("https://res.cloudinary.com/dykpeapfn/image/upload/v1682059454/deer_ozlfzt.jpg"); }`}</style>
             <div  className='flex flex-col'>
 
-                <div className="p-6 max-w-sm mt-3 mb-3 mx-auto w-3/4 bg-vanilla text-cardamom rounded-xl shadow-lg flex items-center">
+                <div className="p-6 max-w-sm mt-3 mb-3 mx-auto w-3/4 bg-vanilla text-cardamom rounded-xl opacity-85 shadow-2xl flex items-center">
                     <form
                         onSubmit={handleSubmit}>
                         <div>

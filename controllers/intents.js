@@ -47,7 +47,7 @@ async function completeOne(req,res){
             {$set:{intentComplete: true},
             $currentDate: { lastModified: true }
             })
-        //intent.save()
+
         console.log('in controller completeONe')
     } catch(err){
         res.status(400).json('Error')

@@ -34,10 +34,6 @@ export default function Intent({intent, setUpdate}) {
           {intent.intentDescription}
         </li>
             <form>
-              <button
-                  name='startTimer'
-
-                  >start timer</button>
               <button className=' border-2 m-1 border-sunset p-1 rounded-md hover:bg-red-500 hover:text-vanilla hover:border mt-3'
                   name='deleteOne'
                   value='deleteOne'

@@ -7,7 +7,9 @@ import {useEffect} from 'react'
 export default function Timers() {
     return (
         <>
-            <div className="bg-ocean w-screen h-screen">
+            
+            <div >
+            <style>{`body { background-image: url("https://res.cloudinary.com/dykpeapfn/image/upload/v1682064420/cloud_cmolv1.jpg"); }`}</style>
                 <Meditation  />
             </div>
         </>  

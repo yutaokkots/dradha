@@ -28,7 +28,7 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                     <a className="" href="/"> <img width='150rem'  src={logo} /></a>
                 </div>
 
-                <div className='side-bar-menu-item flex bg-land text-cardamom  w-screen'>
+                <div className='side-bar-menu-item flex bg-land text-cardamom  w-screen shadow-2xl'>
                     <ul className="flex flex-wrap items-center space-x-6 justify-between  p-3 mx-auto w-screen">
 
                         <li 
