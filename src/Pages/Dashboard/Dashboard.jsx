@@ -70,13 +70,8 @@ export default function Dashboard({user, setUser}) {
             totalMinutes: inputTime}
         setSessionTimer(newSession)
 
+        if (!timerStarted && seconds ===0 ) play()
     }, [seconds, minutes, hours, days])
-
-    useEffect(()=>{
-        if (activeMenuItem === 1 && !isRunning){
-            if (seconds === 0) play()
-        }
-    }, [isRunning])
 
     return (
         <>  
