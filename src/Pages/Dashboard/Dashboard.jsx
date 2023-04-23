@@ -45,7 +45,6 @@ export default function Dashboard({user, setUser}) {
             try{
                 const quote = await inspAPI.getQuote()
                 setQuote(quote)
-                console.log(quote)
             } catch(err){
                 console.error('err', err)
             }
@@ -81,7 +80,7 @@ export default function Dashboard({user, setUser}) {
 
     return (
         <>  
-            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, start, pause, restart, isRunning, inputValue, setInputValue, activeMenuItem}} >
+            <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, start, pause, restart, isRunning, inputValue, setInputValue, activeMenuItem, quote}} >
                     <div >
                             <div >
                                     <SideBar 
@@ -109,7 +108,7 @@ export default function Dashboard({user, setUser}) {
                             }
                             {activeMenuItem === 2 &&
                             <div >
-                                <Inspiration getNewQuote={getNewQuote} quote={quote}/>
+                                <Inspiration quote={quote} getNewQuote={getNewQuote}/>
                             </div>
                             }
                         </div>
