@@ -4,7 +4,6 @@ export default function Inspiration({quote, getNewQuote}) {
     function handleClick(){
         getNewQuote()
     }
-    console.log(quote.quote)
 
   return (
     <>
