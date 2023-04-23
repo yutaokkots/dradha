@@ -5,6 +5,7 @@ export default function Inspiration({quote, getNewQuote}) {
     function handleClick(){
         getNewQuote()
     }
+    console.log(quote.quote)
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function Inspiration({quote, getNewQuote}) {
         <div className='flex items-center justify-center'>
         <button className=' text-vanilla bg-cardamom hover:bg-vanilla hover:text-cardamom py-1 px-1 rounded mt-2 mb-5' 
                 onClick={handleClick}
-                    >Reset</button>
+                    >Another</button>
         </div>
     </>
   )
