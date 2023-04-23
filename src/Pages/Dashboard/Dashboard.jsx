@@ -108,7 +108,7 @@ export default function Dashboard({user, setUser}) {
                             }
                             {activeMenuItem === 2 &&
                             <div >
-                                <Inspiration getNewQuote={getNewQuote} quote={quote[0]}/>
+                                <Inspiration getNewQuote={getNewQuote} quote={quote}/>
                             </div>
                             }
                         </div>

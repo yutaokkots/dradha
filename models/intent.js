@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const SALT_ROUNDS = 6
 const bcrypt = require('bcrypt')
 
-
 const intentFeedbackSchema = new Schema({
     commentUser: {
       type: Schema.Types.ObjectId,
