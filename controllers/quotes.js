@@ -5,8 +5,11 @@ async function getRand(req, res){
     console.log('controller')
     try {
         const quote = await Quote.aggregate([{$sample:{size: 1}}])
-        const singleQuote = quote[0]
-        res.json(singleQuote)
+        const data = {
+            quote: quote[0]['quote'],
+            source: quote[0]['source']}
+
+        res.json(data)
     }catch(err){
         res.status(400).json('Not found')
     }

@@ -8,10 +8,8 @@ async function getAll(req, res){
         res.json(intents)
     }catch(err){
         res.status(400).json('Not found')
-
     }
 }
-
 
 async function create(req, res){
     try {
@@ -55,7 +53,6 @@ function save(){
         res.status(400).json('Credentials do not match')
     }
 }
-
 
 module.exports = {
     create,

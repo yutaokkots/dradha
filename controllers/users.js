@@ -33,6 +33,7 @@ async function login(req, res) {
       res.status(400).json('Bad Credentials');
     }
   }
+  
 module.exports = {
     create,
     login,
