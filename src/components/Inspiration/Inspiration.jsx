@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 
 export default function Inspiration({quote, getNewQuote}) {
-
     function handleClick(){
         getNewQuote()
     }
