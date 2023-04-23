@@ -8,7 +8,6 @@ async function getRand(req, res){
         const data = {
             quote: quote[0]['quote'],
             source: quote[0]['source']}
-
         res.json(data)
     }catch(err){
         res.status(400).json('Not found')
