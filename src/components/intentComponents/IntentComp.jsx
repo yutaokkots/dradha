@@ -38,21 +38,13 @@ export default function IntentComp({user}) {
         getAllIntents()
     },[pageReload])
 
-
     return (
         <>  
             <IntentContext.Provider value={{pageReload, setPageReload}}>
                 <div>
-                    <AddIntent user={user} intents={unfinishedInt} updateRef={updateRef} />
+                    <AddIntent user={user} intents={masterIntents} updateRef={updateRef} />
                 </div>
             </IntentContext.Provider>
         </>
     )
 }
-
-{/* <div>
-<IntentsList intents={masterIntents} />
-</div>
-<div>
-    <PastIntentsList intents={masterIntents}  />
-</div> */}

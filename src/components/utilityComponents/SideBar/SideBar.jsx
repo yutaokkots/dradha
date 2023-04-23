@@ -1,8 +1,7 @@
 import React from 'react'
 import LogoutButton from '../../authComponents/LogoutButton'
 import Clock from '../../timerComponents/Clock/Clock'
-import { Link, useContext } from 'react'
-import SideBarItems from '../SideBarItems/SideBarItems'
+import { useContext } from 'react'
 
 import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 import logo from "../../../assets/logos/dradha_logo.svg"
@@ -28,9 +27,8 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                     <a className="" href="/"> <img width='150rem'  src={logo} /></a>
                 </div>
 
-                <div className='side-bar-menu-item flex bg-land text-cardamom  w-screen shadow-2xl'>
-                    <ul className="flex flex-wrap items-center space-x-6 justify-between  p-3 mx-auto w-screen">
-
+                <div className='side-bar-menu-item flex bg-cardamom text-vanilla w-screen shadow-2xl'>
+                    <ul className="flex flex-wrap flex-row items-center list-none text-lg justify-evenly px-3 py-3 w-screen">
                         <li 
                             className='cursor-pointer'
                             value='1'
@@ -49,11 +47,10 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                     </ul>
                 </div>
 
-                <div className='p-2 flex items-center justify-between space-x-6  w-screen side-bar-menu-item  bg-land text-cardamom'>
+                <div className='p-2 flex items-center justify-between space-x-6  w-screen side-bar-menu-item  bg-land text-cardamom shadow-xl'>
                     <div className=' bg-vanilla opacity-2 text-ocean border-solid border-2 rounded-md px-2 py-1 border-land'>
                         <Clock/>
-                    </div>
-                            
+                    </div>      
                     {(!timerStarted) ?
                         <div>
                             <h2></h2>
@@ -71,21 +68,7 @@ export default function SideBar({user, setUser, setMenu, start, pause, restart})
                         <LogoutButton user={user} setUser={setUser} />
                     </div>
                 </div>
-
-                   
-  
-
-
             </div>
         </>
     )
 }
-
-
-// <button className="bg-sky-500 hover:bg-sky-700" onClick={pause}>Pause</button>
-// <button className="bg-sky-500 hover:bg-sky-700" onClick={start}>Start</button>
-// <button onClick={() => {
-//                 const time = new Date();
-//                 time.setSeconds(time.getSeconds() + 300);
-//                 restart(time)
-//                 }}>Restart</button>
