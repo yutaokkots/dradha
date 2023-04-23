@@ -36,7 +36,7 @@ export default function AddIntent({user, intents}) {
 
     return (
         <>
-        <style>{`body { background-image: url("https://res.cloudinary.com/dykpeapfn/image/upload/v1682059454/deer_ozlfzt.jpg"); }`}</style>
+        <style>{`body { background-image: url("https://res.cloudinary.com/dykpeapfn/image/upload/v1682237567/cloud_comp_v9yez6.jpg"); }`}</style>
             <div  className='flex flex-col'>
 
                 <div className="p-6 max-w-sm mt-5 mb-3 mx-auto w-3/4 bg-vanilla text-cardamom rounded-xl opacity-85 shadow-2xl flex items-center">

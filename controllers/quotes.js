@@ -1,6 +1,4 @@
 const Quote = require('../models/quote')
-const jwt = require('jsonwebtoken')
-
 
 // $sample and .aggregate() used to obtain a random object from model
 async function getRand(req, res){
