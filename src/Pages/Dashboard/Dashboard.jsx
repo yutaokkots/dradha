@@ -43,8 +43,9 @@ export default function Dashboard({user, setUser}) {
     useEffect(()=>{
         async function getQuote(){
             try{
-                const newQuote = await inspAPI.getQuote()
-                setQuote(newQuote)
+                const quote = await inspAPI.getQuote()
+                setQuote(quote)
+                console.log(quote)
             } catch(err){
                 console.error('err', err)
             }
