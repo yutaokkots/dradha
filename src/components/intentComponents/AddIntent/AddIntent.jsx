@@ -19,7 +19,6 @@ export default function AddIntent({user, intents}) {
 
     async function handleSubmit(evt){
         evt.preventDefault() 
-
         try {
             const result = await intentsAPI.createOne(newIntentObject);
             setPageReload(!pageReload)
