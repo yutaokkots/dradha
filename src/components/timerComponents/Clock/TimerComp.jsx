@@ -3,19 +3,15 @@ import { useTimer } from 'react-timer-hook';
 import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 import ProgressBarComp from './ProgressBarComp';
 
-const expiryTimestamp = 20
-
 export default function TimerComp({inputTime}) {
     // useContext variables declared to set and get the global variables in TimeContext
     const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, start, pause, restart, isRunning, inputValue, setInputValue} = useContext(TimeContext)
-
 
     // twoDigits() -> changes the single digit time values to double digits
     function twoDigits(singleDigit){
         if (singleDigit.toString().length === 1) return `0${singleDigit}`
         else return singleDigit
     }
-
 
     // sets the user input, in min, to the time that the user sets
     function setTimerComp(inputTime){
@@ -28,14 +24,7 @@ export default function TimerComp({inputTime}) {
             restart(time)
         }
         setTimerStarted(true)
-        
     }
-
-
-    // clearTimer() -> resets the timer to 0
-    // resets total minutes sessionTimer all values to 0
-    // resets is Running to false
-    // resets inputValue to 0
 
     function clearTimer(){
         setSessionTimer({
@@ -55,7 +44,7 @@ export default function TimerComp({inputTime}) {
 
     return (
         <>
-            <div  className="flex items-center justify-center  align-middle pt-10">
+            <div  className="flex items-center justify-center  align-middle pt-7">
                 <div className="flex items-center justify-center ">
                     <ProgressBarComp />
                 </div>
@@ -74,7 +63,7 @@ export default function TimerComp({inputTime}) {
                 
                 <button className=' bg-land text-vanilla hover:text-cardamom hover:bg-vanilla hover:border-2 hover:border-cardamom py-1 px-1 rounded mt-5 mb-5' onClick={() => setTimerComp(inputValue)}
                     >Start</button>
-                
+ 
                 <button className=' text-vanilla bg-sunset hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' onClick={clearTimer}
                     >Reset</button>
             </div>

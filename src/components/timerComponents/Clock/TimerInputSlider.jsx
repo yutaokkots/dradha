@@ -10,7 +10,6 @@ export default function TimerInputSlider( {setTimer, timerValue, initialValue} )
 
     useEffect(()=>{
         setValue(sessionTimer.elapsedMinutes)
-
     },[])
 
     function onChange(evt){
@@ -26,16 +25,23 @@ export default function TimerInputSlider( {setTimer, timerValue, initialValue} )
 
     return (
         <>
-            {inputValue}
-            <input 
-                className='input-slider'
-                type="range"
-                min="1"
-                max={maxValue}
-                onChange={onChange}
-    
-                value={inputValue}
-                />
+            <div className="flex flex-row flex-wrap items-center justify-between p-3 mx-auto w-screen">
+                    <div className="p-1 box-border pl-3">
+                        <span className="text-sm">{inputValue} min </span>
+                    </div>
+
+                    <div>
+                        <input 
+                            className='input-slider disabled:opacity-40'
+                            type="range"
+                            disabled={timerStarted}
+                            min="1"
+                            max={maxValue}
+                            onChange={onChange}
+                            value={inputValue}
+                            />
+                    </div>
+            </div>
         </>
   )
 }

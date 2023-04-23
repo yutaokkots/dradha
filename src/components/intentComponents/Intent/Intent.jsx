@@ -15,18 +15,17 @@ export default function Intent({intent, setUpdate}) {
       } catch(err){
           console.error('err', err)
       }
-    }
+  }
 
   async function completeOne(evt){
-        evt.preventDefault()
-        setPageReload(!pageReload)
-        try{
-          await intentsAPI.completeOne(intent._id)
-
-        } catch(err){
-            console.error('err', err)
-        }
-    }
+      evt.preventDefault()
+      setPageReload(!pageReload)
+      try{
+        await intentsAPI.completeOne(intent._id)
+      } catch(err){
+          console.error('err', err)
+      }
+  }
 
   return (
     <>  

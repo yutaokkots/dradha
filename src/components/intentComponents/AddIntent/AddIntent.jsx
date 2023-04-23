@@ -17,10 +17,8 @@ export default function AddIntent({user, intents}) {
         setNewIntentObject({...newIntentObject, [evt.target.name]: evt.target.value})
     }
 
-    
     async function handleSubmit(evt){
         evt.preventDefault() 
-
         try {
             const result = await intentsAPI.createOne(newIntentObject);
             setPageReload(!pageReload)
@@ -36,14 +34,12 @@ export default function AddIntent({user, intents}) {
         setNewIntentObject({...newIntentObject, [evt.target.name]: evt.target.checked})
     }
 
-
-
     return (
         <>
         <style>{`body { background-image: url("https://res.cloudinary.com/dykpeapfn/image/upload/v1682059454/deer_ozlfzt.jpg"); }`}</style>
             <div  className='flex flex-col'>
 
-                <div className="p-6 max-w-sm mt-3 mb-3 mx-auto w-3/4 bg-vanilla text-cardamom rounded-xl opacity-85 shadow-2xl flex items-center">
+                <div className="p-6 max-w-sm mt-5 mb-3 mx-auto w-3/4 bg-vanilla text-cardamom rounded-xl opacity-85 shadow-2xl flex items-center">
                     <form
                         onSubmit={handleSubmit}>
                         <div>
@@ -73,25 +69,23 @@ export default function AddIntent({user, intents}) {
                 </div>
 
 
-                { intents.length > 0 && <div className="p-6 max-w-sm mx-auto mt-2 mb-3 w-3/4 bg-white rounded-xl shadow-lg flex items-center" >
+                <div className="p-6 max-w-sm mx-auto mt-2 mb-3 w-3/4 bg-white bg-opacity-95 rounded-xl shadow-lg flex items-center" >
                     <ul>
-
+                        <h3 className="text-cardamom py-2 text-lg">In progress</h3>
                         {intents.map((intent,idx)=>  
                             !intent.intentComplete && <Intent key={idx} intent={intent}/> )}
-
                     </ul>
                 </div>
-                }
 
-                
+                <div className="p-6 max-w-sm mx-auto mt-2 mb-3 w-3/4 bg-opacity-90 bg-white text-gray-400 rounded-xl shadow-lg flex items-center" >
+                    <ul>
+                        <h3 className="text-cardamom py-2 text-lg">Completed</h3>
+                        {intents.map((intent,idx)=> 
+                            intent.intentComplete && <Intent key={idx} intent={intent}/> )} 
+                    </ul>
+                </div>
             </div>
         </>
     )
 }
 
-{/* <div>
-<ul>
-    {intents.map((intent,idx)=> 
-        intent.intentComplete && <Intent key={idx} intent={intent}/> )} 
-</ul>
-</div> */}

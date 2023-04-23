@@ -25,9 +25,8 @@ export default function Dashboard({user, setUser}) {
     const expiryTimestamp = 20
     // declaring useTimer values to be used in this component and child components
     const { seconds, minutes, hours, days, isRunning, 
-        start, pause, resume, restart,
-        } = useTimer({ expiryTimestamp, onExpire: () => {
-            setTimerStarted(false)}
+        start, pause, resume, restart} = useTimer({ expiryTimestamp, onExpire: () => {
+                setTimerStarted(false)}
         });
 
     // useSound for chime sound
@@ -58,12 +57,12 @@ export default function Dashboard({user, setUser}) {
         return seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
     }
 
-    const inputTime = sessionTimer.elapsedMinutes > 0 && timerStarted ?  sessionTimer.elapsedMinutes : 0
-
+    const inputTime = sessionTimer.elapsedMinutes > 0 && timerStarted ? inputValue : 0
 
     useEffect(()=>{
         let elapsedSeconds = convertSeconds(seconds,minutes,hours,days)
         let totalSeconds = convertSeconds(0, inputTime)
+        
         const newSession = {
             elapsedSeconds: elapsedSeconds,
             totalSeconds: totalSeconds, 
@@ -84,7 +83,6 @@ export default function Dashboard({user, setUser}) {
             <TimeContext.Provider value={{sessionTimer, setSessionTimer, timerStarted, setTimerStarted, seconds, minutes, hours, start, pause, restart, isRunning, inputValue, setInputValue, activeMenuItem}} >
                     <div >
                             <div >
-                                {}
                                     <SideBar 
                                         user={user} 
                                         setUser={setUser}
@@ -93,10 +91,8 @@ export default function Dashboard({user, setUser}) {
                                         pause={pause}
                                         restart={restart}
                                         />
-                                    
                             </div>
                     </div>
-
                         <div >
                             {activeMenuItem === 0 &&
                                 <div >
@@ -115,11 +111,8 @@ export default function Dashboard({user, setUser}) {
                                 <Inspiration getNewQuote={getNewQuote} quote={quote[0]}/>
                             </div>
                             }
-                            
                         </div>
-
             </TimeContext.Provider>           
         </>
-    
     )
 }

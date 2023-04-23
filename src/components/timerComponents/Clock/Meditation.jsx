@@ -5,7 +5,6 @@ import TimerComp from './TimerComp'
 import TimerInputSlider from './TimerInputSlider'
 import { TimeContext } from '../../../Pages/Dashboard/Dashboard'
 
-
 export default function Meditation({ timerRef}) {
     // global variable, TimeContext, is called here with useContext()
     const {sessionTimer, setSessionTimer, timerStarted, setTimerStarted} = useContext(TimeContext)
