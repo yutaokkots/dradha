@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 
-
 export default function Inspiration({quote, getNewQuote}) {
 
     function handleClick(){
@@ -12,8 +11,8 @@ export default function Inspiration({quote, getNewQuote}) {
     <style>{`body { background-image: url("https://res.cloudinary.com/dykpeapfn/image/upload/v1682237567/sunset_rrp1t6.jpg"); }`}</style>
         <div className='flex items-center justify-center'>
             <div className="p-6 max-w-sm mt-5 mb-3 mx-auto w-3/4 bg-cardamom text-vanilla rounded-md opacity-80 shadow-2xl flex flex-col">
-                <div>{quote[0].quote}</div>
-                <div> - {quote[0].source}</div>
+                <div>{quote.quote}</div>
+                <div> - {quote.source}</div>
             </div>
         </div>
         <div className='flex items-center justify-center'>
