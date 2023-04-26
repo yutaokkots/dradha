@@ -61,6 +61,10 @@ And be inspired.
 
 <img src="./readme_files/dradha-05.png" width="50%"  />
 
+The app in use:
+
+<img src="./readme_files/dradha-01.gif" width="50%"  />
+
 # Process
 
 <img src="./readme_files/code-model.png" width="50%"  />
