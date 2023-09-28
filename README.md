@@ -96,5 +96,5 @@ The different components are controlled by a series of different states that are
 # Acknowledgements
 
 <div align="center">
-I personally thank Vilem, Eric, Anthony, Liam, Kolbi, Allan, Shay, Austin, Collin, Maria, Kelli, and Kendall for the late night support and help throughout this project. 
+Thanks to Vilem, Eric, Anthony, Liam, Kolbi, Allan, Shay, Austin, Collin, Maria, Kelli, and Kendall.
 </div>
